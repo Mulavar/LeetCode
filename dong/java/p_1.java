@@ -24,8 +24,8 @@ class Solution {
         int[] res = new int[2];
         for(int l = 0 ; l < nums.length ; l++){
             if(map.containsKey(nums[l])){
-                res[0] = l;
-                res[1] = map.get(nums[l]);
+                res[0] = map.get(nums[l]);
+                res[1] = l;
                 return res;
             }
             map.put(target - nums[l],l);
