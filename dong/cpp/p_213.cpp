@@ -5,7 +5,7 @@
 
 using namespace std;
 /*
-    House Robber I
+    House Robber II
 */
 
 class Solution {
