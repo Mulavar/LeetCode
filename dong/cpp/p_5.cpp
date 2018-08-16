@@ -5,6 +5,10 @@
 
 using namespace std;
 
+/*
+    Longest Palindromic Substring
+*/
+
 class Solution
 {
   public:
@@ -54,6 +58,32 @@ class Solution
             }
         }
         return ans;
+    }
+
+    string longestPalindrome1(string s) {
+        int len = s.length(), ans = 0, st = 0;
+        if(len==0) return "";
+        int dp[len][len];
+        memset(dp, 0, sizeof(dp));
+        for(int i=0;i<len;i++) ans = dp[i][i] = 1;
+        for(int i=0;i<len-1;i++)
+            if(s[i]==s[i+1]){
+                dp[i][i+1] = 2;
+                st = (dp[i][i+1]>ans)? i: st;
+                ans = max(ans, dp[i][i+1]);
+            }
+                
+        for(int i=2;i<len;i++){
+            for(int j=0;j<len-i;j++){
+                if(s[j+i]==s[j]&&dp[j+1][i+j-1]){
+                    dp[j][i+j] = dp[j+1][i+j-1] + 2;
+                    st = (dp[j][i+j]>ans)? j: st;
+                    ans = max(ans, dp[j][i+j]);
+                }
+            }
+        }
+        
+        return s.substr(st, ans);
     }
 };
 
