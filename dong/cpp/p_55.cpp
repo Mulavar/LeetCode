@@ -30,3 +30,12 @@ bool canJump(vector<int> &nums)
     }
     return dp[sz - 1];
 }
+
+int jump_concise(vector<int> nums){
+    int sz = nums.size(), pos = nums[0] + 0;
+
+    for(int i=1;i<sz - 1&&i<=pos;i++){
+        pos = max(pos, nums[i] + i);
+    }
+    return pos >= sz - 1;
+}
