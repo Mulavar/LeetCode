@@ -1,4 +1,5 @@
 *.class
 *.o
 
-*.idea
+.idea/
+.vscode/
