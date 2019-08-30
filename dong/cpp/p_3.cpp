@@ -12,12 +12,10 @@ class Solution
   public:
     int lengthOfLongestSubstring(string s)
     {
-        // printf("#####\n");
         map<char, int> mp;
         int l = 0, r = l, ans = 0;
         while (r < s.size())
         {
-            // printf("s[%d]: %c\n", r, s[r]);
             if (mp.find(s[r]) != mp.end() && mp[s[r]] >= l)
             {
                 // printf("%c: %d\n", s[r], mp[s[r]]);
