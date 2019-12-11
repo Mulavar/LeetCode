@@ -44,20 +44,15 @@ public class P72Subsets {
     class Solution1 {
         public List<List<Integer>> subsets(int[] nums) {
             List<List<Integer>> result = new ArrayList<List<Integer>>();
-            if (nums.length != 0) {
-                List<Integer> temp = new ArrayList<Integer>();
-                temp.add(nums[0]);
-                result.add(temp);
-            }
             // 增加空集
             result.add(new ArrayList<>());
             for (int i = 0; i < nums.length; i++) {
                 int size = result.size();
                 for (int j = 0; j < size; j++) {
                     // 不含nums[i]的子集
-                    result.add(new ArrayList<>(result.get(i)));
+                    result.add(new ArrayList<>(result.get(j)));
                     // 含有nums[i]的子集
-                    result.get(i).add(nums[i]);
+                    result.get(j).add(nums[i]);
                 }
             }
             return result;
