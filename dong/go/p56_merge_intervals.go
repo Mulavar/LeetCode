@@ -17,6 +17,7 @@ func (arr intss) Swap(i, j int) {
 func (arr intss) Len() int {
 	return len(arr)
 }
+
 func merge(intervals [][]int) [][]int {
 	if len(intervals) <= 1 {
 		return intervals
