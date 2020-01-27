@@ -38,4 +38,35 @@ public class P46Permutations {
             return result;
         }
     }
+
+    class Solution1 {
+        public List<List<Integer>> permute(int[] nums) {
+            List<List<Integer>> result = new ArrayList<>();
+            backtrace(nums, 0, result);
+            return result;
+        }
+
+        public void backtrace(int[] nums, int idx, List<List<Integer>> result) {
+            if (idx == nums.length) {
+                ArrayList<Integer> tmp = new ArrayList<>();
+                for (int num :
+                        nums) {
+                    tmp.add(num);
+                }
+                result.add(tmp);
+            }
+
+            for (int i = idx; i < nums.length; i++) {
+                swap(nums, idx, i);
+                backtrace(nums, idx + 1, result);
+                swap(nums, idx, i);
+            }
+        }
+
+        public void swap(int[] nums, int i, int j) {
+            int tmp = nums[i];
+            nums[i] = nums[j];
+            nums[j] = tmp;
+        }
+    }
 }

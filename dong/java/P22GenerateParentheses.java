@@ -64,7 +64,6 @@ public class P22GenerateParentheses {
                     for (int i = 0; i <= p.length(); i++) {
                         newParenthesis.add(p.substring(0, i) + "()" + p.substring(i));
                     }
-//                    new StringBuilder(p);
                 }
                 parenthesis = newParenthesis;
                 n--;
