@@ -5,7 +5,7 @@ import java.util.List;
  * @author Lam
  * @date 2019/12/8
  */
-public class P72Subsets {
+public class P78Subsets {
     /**
      * 使用回溯法
      */
@@ -39,7 +39,7 @@ public class P72Subsets {
     }
 
     /**
-     * 不适用回溯法
+     * 不使用回溯法
      */
     class Solution1 {
         public List<List<Integer>> subsets(int[] nums) {
@@ -61,7 +61,7 @@ public class P72Subsets {
 
     public static void main(String[] args) {
         int[] nums = {1, 2, 3};
-        P72Subsets.Solution p72SubSets = new P72Subsets().new Solution();
+        P78Subsets.Solution p72SubSets = new P78Subsets().new Solution();
         List<List<Integer>> subsets = p72SubSets.subsets(nums);
         System.out.println(subsets);
 

@@ -61,6 +61,7 @@ public class P47Permutations2 {
 
             Set<Integer> set = new HashSet<>();
             for (int i = idx; i < nums.length; i++) {
+                // note：核心在这里的两个去重
                 if (i == idx || (nums[i] != nums[idx] && set.add(nums[i]))) {
                     swap(nums, idx, i);
                     backtrace(nums, idx + 1, result);
