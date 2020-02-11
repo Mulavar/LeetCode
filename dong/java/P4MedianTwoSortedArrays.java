@@ -68,7 +68,6 @@ public class P4MedianTwoSortedArrays {
                 return P4MedianTwoSortedArrays.findMedian(nums1, k1, k, m, even, nums2[k2 - 1]);
             } else {
                 if (even) {
-                    int up;
                     if (nums1[k1] < nums2[k2]) {
                         return P4MedianTwoSortedArrays.calcMedian(nums1, nums2, k1, k2);
                     } else {
