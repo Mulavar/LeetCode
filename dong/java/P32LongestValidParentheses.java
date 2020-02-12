@@ -12,6 +12,7 @@ public class P32LongestValidParentheses {
             if (s.length() <= 1) {
                 return 0;
             }
+            //dp表示配对长度，小于0表示配对失败
             int[] dp = new int[s.length()];
             if (s.charAt(0) == '(') {
                 dp[0] = 0;
@@ -24,10 +25,13 @@ public class P32LongestValidParentheses {
                     dp[i] = 0;
                 } else {
                     if (dp[i - 1] == 0) {
+                        // () 情况
                         dp[i] = 2;
                     } else if (dp[i - 1] < 0) {
+                        // 无法配对的情况
                         dp[i] = -1;
                     } else {
+                        // (()) 嵌套括号的情况
                         int last = i - 1;
                         while (last >= 0 && dp[last] > 0) {
                             last = last - dp[last];
