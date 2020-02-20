@@ -1,3 +1,5 @@
+import bean.ListNode;
+
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
@@ -11,15 +13,6 @@ public class P23MergeKSortedLists {
      * 使用内置的优先级队列
      */
     class Solution {
-        class ListNode {
-            int val;
-            ListNode next;
-
-            ListNode(int x) {
-                val = x;
-            }
-        }
-
         public ListNode mergeKLists(ListNode[] lists) {
             PriorityQueue<ListNode> queue = new PriorityQueue<>(new ListNodeComp());
             for (ListNode listNode : lists) {
