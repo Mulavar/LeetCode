@@ -13,7 +13,7 @@ public class P142LinkedListCycleII {
             }
             ListNode slow = head;
             ListNode fast = head.next.next;
-            while (slow != null && fast != null && slow != fast) {
+            while (fast != null && slow != fast) {
                 slow = slow.next;
                 fast = fast.next;
                 if (fast != null) {
@@ -22,12 +22,12 @@ public class P142LinkedListCycleII {
                     break;
                 }
             }
-            if (slow == null || fast == null) {
+            if (fast == null) {
                 return null;
             }
 
             ListNode newSt = head;
-            while (newSt!=slow) {
+            while (newSt != slow) {
                 newSt = newSt.next;
                 slow = slow.next;
             }
