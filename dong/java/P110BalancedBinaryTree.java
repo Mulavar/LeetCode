@@ -1,3 +1,5 @@
+import bean.TreeNode;
+
 /**
  * @author Lam
  * @ClassName P110BalancedBinaryTree
@@ -5,15 +7,6 @@
  */
 public class P110BalancedBinaryTree {
     class Solution {
-        public class TreeNode {
-            int val;
-            TreeNode left;
-            TreeNode right;
-
-            TreeNode(int x) {
-                val = x;
-            }
-        }
 
         public boolean isBalanced(TreeNode root) {
             if (root == null) {

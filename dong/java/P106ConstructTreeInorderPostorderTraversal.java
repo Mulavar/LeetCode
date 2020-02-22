@@ -1,3 +1,5 @@
+import bean.TreeNode;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -10,15 +12,6 @@ import java.util.Map;
  */
 public class P106ConstructTreeInorderPostorderTraversal {
     class Solution {
-        public class TreeNode {
-            int val;
-            TreeNode left;
-            TreeNode right;
-
-            TreeNode(int x) {
-                val = x;
-            }
-        }
 
         public TreeNode buildTree(int[] inorder, int[] postorder) {
             HashMap<Integer, Integer> map = new HashMap<>();

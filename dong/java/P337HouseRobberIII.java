@@ -1,3 +1,5 @@
+import bean.TreeNode;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -8,16 +10,6 @@ import java.util.Map;
  */
 public class P337HouseRobberIII {
     class Solution {
-        public class TreeNode {
-            int val;
-            TreeNode left;
-            TreeNode right;
-
-            TreeNode(int x) {
-                val = x;
-            }
-        }
-
         // 这种解法对root.left.left会重复计算，造成大量浪费
         public int rob(TreeNode root) {
             return solve(root, true);
@@ -38,16 +30,6 @@ public class P337HouseRobberIII {
     }
 
     class Solution1 {
-        public class TreeNode {
-            int val;
-            TreeNode left;
-            TreeNode right;
-
-            TreeNode(int x) {
-                val = x;
-            }
-        }
-
         // 使用map去重优化，2ms，beat 56%
         public int rob(TreeNode root) {
             HashMap<TreeNode, Integer> map = new HashMap<>();
@@ -75,16 +57,6 @@ public class P337HouseRobberIII {
     }
 
     class Solution2 {
-        public class TreeNode {
-            int val;
-            TreeNode left;
-            TreeNode right;
-
-            TreeNode(int x) {
-                val = x;
-            }
-        }
-
         // 采用dp思想，使用后序遍历，从底往上可以看做一个个dp数组，
         // 然后继续采用dp[i] = max(dp[i-1], dp[i-2]+num[i])的做法
         public int rob(TreeNode root) {

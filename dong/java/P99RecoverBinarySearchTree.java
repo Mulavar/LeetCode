@@ -1,3 +1,5 @@
+import bean.TreeNode;
+
 import java.util.Arrays;
 
 /**
@@ -10,16 +12,6 @@ public class P99RecoverBinarySearchTree {
      * 两个节点交换，中序遍历一定会有1或2处逆序的地方
      */
     class Solution {
-        public class TreeNode {
-            int val;
-            TreeNode left;
-            TreeNode right;
-
-            TreeNode(int x) {
-                val = x;
-            }
-
-        }
 
         public void recoverTree(TreeNode root) {
             // nodes 表示被交换的两个节点
@@ -57,17 +49,17 @@ public class P99RecoverBinarySearchTree {
     }
 
     public static void main(String[] args) {
-        Solution.TreeNode root = new P99RecoverBinarySearchTree().new Solution().new TreeNode(3);
-        root.left = new P99RecoverBinarySearchTree().new Solution().new TreeNode(1);
-        root.right = new P99RecoverBinarySearchTree().new Solution().new TreeNode(4);
-        root.right.left = new P99RecoverBinarySearchTree().new Solution().new TreeNode(2);
-        P99RecoverBinarySearchTree.Solution.TreeNode realRoot = root.right.left;
+        TreeNode root = new TreeNode(3);
+        root.left = new TreeNode(1);
+        root.right = new TreeNode(4);
+        root.right.left = new TreeNode(2);
+        TreeNode realRoot = root.right.left;
         new P99RecoverBinarySearchTree().new Solution().recoverTree(root);
 //        System.out.println("root" + root);
 
-        Solution.TreeNode root1 = new P99RecoverBinarySearchTree().new Solution().new TreeNode(2);
-        root1.left = new P99RecoverBinarySearchTree().new Solution().new TreeNode(1);
-        root1.left.right = new P99RecoverBinarySearchTree().new Solution().new TreeNode(3);
+        TreeNode root1 = new TreeNode(2);
+        root1.left = new TreeNode(1);
+        root1.left.right = new TreeNode(3);
         new P99RecoverBinarySearchTree().new Solution().recoverTree(root1);
 //        System.out.println("***" + root1);
     }

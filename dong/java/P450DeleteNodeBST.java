@@ -1,3 +1,5 @@
+import bean.TreeNode;
+
 /**
  * Given a root node reference of a BST and a key, delete the node with the given key in the BST. Return the root node reference (possibly updated) of the BST.
  * <p>
@@ -13,16 +15,6 @@
  */
 public class P450DeleteNodeBST {
     class Solution {
-        public class TreeNode {
-            int val;
-            TreeNode left;
-            TreeNode right;
-
-            TreeNode(int x) {
-                val = x;
-            }
-        }
-
         public TreeNode deleteNode(TreeNode root, int key) {
             if (root == null) {
                 return null;
@@ -95,16 +87,6 @@ public class P450DeleteNodeBST {
     }
 
     class Solution1 {
-        public class TreeNode {
-            int val;
-            TreeNode left;
-            TreeNode right;
-
-            TreeNode(int x) {
-                val = x;
-            }
-        }
-
         public TreeNode deleteNode(TreeNode root, int key) {
             if (root == null) {
                 return null;

@@ -1,3 +1,5 @@
+import bean.TreeNode;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,16 +10,6 @@ import java.util.List;
  */
 public class P113PathSumII {
     class Solution {
-        public class TreeNode {
-            int val;
-            TreeNode left;
-            TreeNode right;
-
-            TreeNode(int x) {
-                val = x;
-            }
-        }
-
         public List<List<Integer>> pathSum(TreeNode root, int sum) {
             ArrayList<List<Integer>> result = new ArrayList<>();
 

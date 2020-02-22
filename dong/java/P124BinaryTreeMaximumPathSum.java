@@ -1,3 +1,5 @@
+import bean.TreeNode;
+
 /**
  * Given a non-empty binary tree, find the maximum path sum.
  * <p>
@@ -11,17 +13,6 @@
  */
 public class P124BinaryTreeMaximumPathSum {
     class Solution {
-        public class TreeNode {
-            int val;
-            TreeNode left;
-            TreeNode right;
-
-            TreeNode(int x) {
-                val = x;
-            }
-
-        }
-
         public int maxPathSum(TreeNode root) {
             int[] result = new int[]{Integer.MIN_VALUE};
             postOrder(root, result);
