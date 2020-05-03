@@ -2,6 +2,9 @@ import bean.ListNode;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 /**
  * @author Lam
  * @ClassName TestP1RangeP100
@@ -9,6 +12,7 @@ import org.junit.Test;
  */
 public class TestP1RangeP100 {
     private ListNode head;
+    private int[][] matrix2;
 
     @Before
     public void prepare() {
@@ -21,6 +25,14 @@ public class TestP1RangeP100 {
         node2.next = node3;
         node3.next = node4;
         node4.next = node5;
+
+        matrix2 = new int[][]{
+                {1, 2, 3, 4, 5},
+                {6, 7, 8, 9, 10},
+                {11, 12, 13, 14, 15},
+                {16, 17, 18, 19, 20},
+                {21, 22, 23, 24, 25},
+        };
     }
 
     @Test
@@ -36,6 +48,20 @@ public class TestP1RangeP100 {
     }
 
     @Test
+    public void testP54SpiralMatrix() {
+        System.out.println(new P54SpiralMatrix().spiralOrder(matrix2));
+        prepare();
+        ArrayList<Integer> result = new ArrayList<>();
+        new P54SpiralMatrix().recursiveSpiral(result, matrix2, 0, 0, 4, 4);
+        System.out.println(result);
+    }
+
+    @Test
+    public void testP59SpiralMatrixII() {
+        System.out.println(Arrays.deepToString(new P59SpiralMatrixII().generateMatrix(5)));
+    }
+
+    @Test
     public void testP82RemoveDuplicatesFromSortedListII() {
         System.out.println(new P82RemoveDuplicatesFromSortedListII().deleteDuplicates(head));
     }
@@ -48,6 +74,16 @@ public class TestP1RangeP100 {
     @Test
     public void testP83RemoveDuplicatesFromSortedList() {
         System.out.println(new P83RemoveDuplicatesFromSortedList().deleteDuplicates(head));
+    }
+
+    @Test
+    public void testP92ReverseLinkedListII() {
+        System.out.println(new P92ReverseLinkedListII().reverseBetween(head, 2, 4));
+    }
+
+    @Test
+    public void testP93RestoreIpAddresses() {
+        System.out.println(new P93RestoreIpAddresses().restoreIpAddresses("010010"));
     }
 
 }
