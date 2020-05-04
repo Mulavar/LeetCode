@@ -12,6 +12,7 @@ import java.util.Arrays;
  */
 public class TestP1RangeP100 {
     private ListNode head;
+    private ListNode head1;
     private int[][] matrix2;
 
     @Before
@@ -33,6 +34,17 @@ public class TestP1RangeP100 {
                 {16, 17, 18, 19, 20},
                 {21, 22, 23, 24, 25},
         };
+
+        head1 = new ListNode(1);
+        node2 = new ListNode(2);
+        node3 = new ListNode(3);
+        node4 = new ListNode(4);
+        node5 = new ListNode(5);
+        head1.next = node4;
+        node4.next = node3;
+        node3.next = node2;
+        node2.next = node5;
+        node5.next = new ListNode(2);
     }
 
     @Test
@@ -72,8 +84,18 @@ public class TestP1RangeP100 {
     }
 
     @Test
+    public void testP77Combinations() {
+        System.out.println(new P77Combinations().combine(5, 3));
+    }
+
+    @Test
     public void testP83RemoveDuplicatesFromSortedList() {
         System.out.println(new P83RemoveDuplicatesFromSortedList().deleteDuplicates(head));
+    }
+
+    @Test
+    public void testP86PartitionList() {
+        System.out.println(new P86PartitionList().partition(head1, 3));
     }
 
     @Test
