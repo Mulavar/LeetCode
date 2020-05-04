@@ -1,4 +1,7 @@
 /**
+ * 实现 pow(x, n) ，即计算 x 的 n 次幂函数。
+ *
+ * Tips: 考察快速幂以及边界输入输出，主要是Integer.MIN_VALUE
  * @author Lam
  * @date 2020/5/1
  */
