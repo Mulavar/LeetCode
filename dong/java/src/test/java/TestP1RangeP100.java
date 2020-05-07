@@ -60,6 +60,13 @@ public class TestP1RangeP100 {
     }
 
     @Test
+    public void testP39CombinationSum() {
+        int[] candidates = new int[]{2, 3, 6, 7};
+        int target = 7;
+        System.out.println(new P39CombinationSum().new Solution().combinationSum(candidates, target));
+    }
+
+    @Test
     public void testP54SpiralMatrix() {
         System.out.println(new P54SpiralMatrix().spiralOrder(matrix2));
         prepare();

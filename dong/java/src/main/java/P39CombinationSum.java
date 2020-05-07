@@ -31,10 +31,4 @@ public class P39CombinationSum {
             solve(result, nums, candidates, i + 1, target);
         }
     }
-
-    public static void main(String[] args) {
-        int[] candidates = new int[]{2, 3, 6, 7};
-        int target = 7;
-        System.out.println(new P39CombinationSum().new Solution().combinationSum(candidates, target));
-    }
 }
