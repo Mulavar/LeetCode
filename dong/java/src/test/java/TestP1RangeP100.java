@@ -1,4 +1,5 @@
 import bean.ListNode;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -91,11 +92,22 @@ public class TestP1RangeP100 {
     }
 
     @Test
-    public void P72EditDistance() {
-        System.out.println(new P72EditDistance().minDistance("horse", "ros"));
-
-        System.out.println(new P72EditDistance().minDistance1("horse", "ros"));
+    public void testP72EditDistance() {
+        Assert.assertEquals(3, new P72EditDistance().minDistance("horse", "ros"));
+        Assert.assertEquals(3, new P72EditDistance().minDistance1("horse", "ros"));
     }
+
+    @Test
+    public void testP74Search2dMatrix() {
+        int[][] matrix = new int[][]{
+                {1, 3, 5, 7},
+                {10, 11, 16, 20},
+                {23, 30, 34, 50},
+        };
+        Assert.assertTrue(new P74Search2dMatrix().searchMatrix(matrix, 3));
+        Assert.assertFalse(new P74Search2dMatrix().searchMatrix(matrix, 13));
+    }
+
     @Test
     public void testP77Combinations() {
         System.out.println(new P77Combinations().combine(5, 3));
