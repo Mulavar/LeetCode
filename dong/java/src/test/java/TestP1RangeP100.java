@@ -91,6 +91,12 @@ public class TestP1RangeP100 {
     }
 
     @Test
+    public void P72EditDistance() {
+        System.out.println(new P72EditDistance().minDistance("horse", "ros"));
+
+        System.out.println(new P72EditDistance().minDistance1("horse", "ros"));
+    }
+    @Test
     public void testP77Combinations() {
         System.out.println(new P77Combinations().combine(5, 3));
     }
