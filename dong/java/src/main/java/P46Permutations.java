@@ -2,6 +2,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * 给定一个 没有重复 数字的序列，返回其所有可能的全排列。
+ *
  * @author Lam
  * @date 2019/12/9
  */
@@ -42,11 +44,11 @@ public class P46Permutations {
     class Solution1 {
         public List<List<Integer>> permute(int[] nums) {
             List<List<Integer>> result = new ArrayList<>();
-            backtrace(nums, 0, result);
+            backtrack(nums, 0, result);
             return result;
         }
 
-        public void backtrace(int[] nums, int idx, List<List<Integer>> result) {
+        public void backtrack(int[] nums, int idx, List<List<Integer>> result) {
             if (idx == nums.length) {
                 ArrayList<Integer> tmp = new ArrayList<>();
                 for (int num :
@@ -58,7 +60,7 @@ public class P46Permutations {
 
             for (int i = idx; i < nums.length; i++) {
                 swap(nums, idx, i);
-                backtrace(nums, idx + 1, result);
+                backtrack(nums, idx + 1, result);
                 swap(nums, idx, i);
             }
         }

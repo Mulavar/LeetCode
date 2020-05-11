@@ -68,6 +68,11 @@ public class TestP1RangeP100 {
     }
 
     @Test
+    public void testP51NQueens() {
+        System.out.println(new P51NQueens().solveNQueens(4));
+    }
+
+    @Test
     public void testP54SpiralMatrix() {
         System.out.println(new P54SpiralMatrix().spiralOrder(matrix2));
         prepare();
