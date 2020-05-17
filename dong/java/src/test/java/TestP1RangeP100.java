@@ -49,6 +49,11 @@ public class TestP1RangeP100 {
     }
 
     @Test
+    public void testP23MergeKSortedLists() {
+        System.out.println(new P23MergeKSortedLists().mergeKLists(new ListNode[]{head, head1}));
+    }
+
+    @Test
     public void testP24SwapNodesInPairs() {
         System.out.println(new P24SwapNodesInPairs().swapPairs(head));
     }
@@ -121,6 +126,37 @@ public class TestP1RangeP100 {
     @Test
     public void testP83RemoveDuplicatesFromSortedList() {
         System.out.println(new P83RemoveDuplicatesFromSortedList().deleteDuplicates(head));
+    }
+
+    @Test
+    public void testP84LargestRectangleHistogram() {
+        int[] heights = new int[]{2, 1, 5, 6, 2, 3};
+        Assert.assertEquals(new P84LargestRectangleHistogram().largestRectangleArea(heights), new P84LargestRectangleHistogram().largestRectangleArea2(heights));
+    }
+
+    @Test
+    public void testP85MaximalRectangle() {
+        char[][] matrix = new char[][]{
+                {'1', '0', '1', '0', '0'},
+                {'1', '0', '1', '1', '1'},
+                {'1', '1', '1', '1', '1'},
+                {'1', '0', '0', '1', '0'},
+        };
+        Assert.assertEquals(6, new P85MaximalRectangle().maximalRectangle(matrix));
+
+        char[][] matrix1 = new char[][]{
+                {'1', '0', '1', '0'},
+                {'1', '0', '1', '1'},
+                {'1', '0', '1', '1'},
+                {'1', '1', '1', '1'},
+        };
+        Assert.assertEquals(6, new P85MaximalRectangle().maximalRectangle1(matrix1));
+
+        char[][] matrix2 = new char[][]{
+                {'0', '1'},
+                {'1', '0'},
+        };
+        Assert.assertEquals(1, new P85MaximalRectangle().maximalRectangle1(matrix2));
     }
 
     @Test
