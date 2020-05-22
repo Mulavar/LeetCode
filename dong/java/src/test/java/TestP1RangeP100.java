@@ -66,6 +66,24 @@ public class TestP1RangeP100 {
     }
 
     @Test
+    public void testP32LongestValidParentheses() {
+        String s = "()(())";
+        Assert.assertEquals(6, new P32LongestValidParentheses().longestValidParentheses(s));
+        s = "(()";
+        Assert.assertEquals(2, new P32LongestValidParentheses().longestValidParentheses(s));
+        s = ")()";
+        Assert.assertEquals(2, new P32LongestValidParentheses().longestValidParentheses(s));
+        s = ")()())";
+        Assert.assertEquals(4, new P32LongestValidParentheses().longestValidParentheses(s));
+        s = ")(";
+        Assert.assertEquals(0, new P32LongestValidParentheses().longestValidParentheses(s));
+        s = "())";
+        Assert.assertEquals(2, new P32LongestValidParentheses().longestValidParentheses(s));
+        s = "(()())";
+        Assert.assertEquals(6, new P32LongestValidParentheses().longestValidParentheses(s));
+    }
+
+    @Test
     public void testP39CombinationSum() {
         int[] candidates = new int[]{2, 3, 6, 7};
         int target = 7;
