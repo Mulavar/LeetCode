@@ -87,6 +87,21 @@ public class TestP1RangeP100 {
     }
 
     @Test
+    public void testP57InsertIntervals() {
+        int[][] datas = new int[][]{
+                {1, 3},
+                {2, 6},
+                {8, 10},
+                {15, 18},
+        };
+
+        int[][] merge = new P57InsertIntervals().insert(datas, new int[]{2, 5});
+        for (int[] ints : merge) {
+            System.out.println(Arrays.toString(ints));
+        }
+    }
+
+    @Test
     public void testP59SpiralMatrixII() {
         System.out.println(Arrays.deepToString(new P59SpiralMatrixII().generateMatrix(5)));
     }
