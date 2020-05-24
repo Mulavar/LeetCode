@@ -47,6 +47,38 @@ public class TestP201RangeP300 {
     }
 
     @Test
+    public void testP240Search2DMatrixII() {
+        int[][] matrix = new int[][]{
+                {1, 4, 7, 11, 15},
+                {2, 5, 8, 12, 19},
+                {3, 6, 9, 16, 22},
+                {10, 13, 14, 17, 24},
+                {
+                        18, 21, 23, 26, 30
+                },
+        };
+        Assert.assertEquals(new P240Search2DMatrixII().searchMatrix1(matrix, 5), new P240Search2DMatrixII().searchMatrix(matrix, 5));
+
+        matrix = new int[][]{
+                {1, 4, 7, 11, 15}, {2, 5, 8, 12, 19}, {3, 6, 9, 16, 22}, {10, 13, 14, 17, 24}, {18, 21, 23, 26, 30},
+        };
+        Assert.assertEquals(new P240Search2DMatrixII().searchMatrix1(matrix, 20), new P240Search2DMatrixII().searchMatrix(matrix, 20));
+
+        matrix = new int[][]{
+                {1, 4, 7, 11, 15}, {2, 5, 8, 12, 19}, {3, 6, 9, 16, 22}, {10, 13, 14, 17, 24}, {18, 21, 23, 26, 30},
+        };
+        Assert.assertEquals(new P240Search2DMatrixII().searchMatrix1(matrix, 5), new P240Search2DMatrixII().searchMatrix(matrix, 5));
+
+
+        matrix = new int[][]{{-1, 3}};
+        Assert.assertEquals(new P240Search2DMatrixII().searchMatrix1(matrix, 3), new P240Search2DMatrixII().searchMatrix(matrix, 3));
+
+        matrix = new int[][]{{5}, {6}};
+        Assert.assertEquals(new P240Search2DMatrixII().searchMatrix1(matrix, 6), new P240Search2DMatrixII().searchMatrix(matrix, 6));
+    }
+
+
+    @Test
     public void testP239SlidingWindowMaximum() {
         int[] nums = new int[]{1, 3, -1, -3, 5, 3, 6, 7};
         Assert.assertEquals(Arrays.toString(new P239SlidingWindowMaximum().maxSlidingWindow(nums, 3)), Arrays.toString(new P239SlidingWindowMaximum().maxSlidingWindow1(nums, 3)));

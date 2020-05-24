@@ -20,4 +20,46 @@ public class P164MaximumGap {
         }
         return res;
     }
+
+    public int maximumGap1(int[] nums) {
+        int n = nums.length;
+        if (n < 2) {
+            return 0;
+        }
+
+        int maxElem = 0;
+        for (int i = 0; i < n; i++) {
+            maxElem = Math.max(maxElem, nums[i]);
+        }
+        int exp = 1;
+        int[] aux = new int[n];
+
+        while (maxElem >= exp) {
+            //counting sort
+            int[] count = new int[10];
+            for (int i = 0; i < n; i++) {
+                count[nums[i] / exp % 10]++;
+            }
+
+            for (int i = 1; i < 10; i++) {
+                count[i] += count[i - 1];
+            }
+
+            for (int i = n - 1; i >= 0; i--) {
+                aux[--count[nums[i] / exp % 10]] = nums[i];
+            }
+
+            for (int i = 0; i < n; i++) {
+                nums[i] = aux[i];
+            }
+            exp *= 10;
+
+        }
+
+        int res = Integer.MIN_VALUE;
+        for (int i = 1; i < n; i++) {
+            res = Math.max(res, nums[i] - nums[i - 1]);
+        }
+        return res;
+    }
 }

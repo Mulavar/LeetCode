@@ -48,17 +48,29 @@ public class TestP101RangeP200 {
     @Test
     public void testP135Candy() {
         int[] grades = new int[]{29, 51, 87, 87, 72, 12};
-        Assert.assertEquals(12 ,new P135Candy().candy(grades));
-        Assert.assertEquals(12 ,new P135Candy().candy1(grades));
-        Assert.assertEquals(4 ,new P135Candy().candy2(new int[]{1, 2, 2}));
+        Assert.assertEquals(12, new P135Candy().candy(grades));
+        Assert.assertEquals(12, new P135Candy().candy1(grades));
+        Assert.assertEquals(4, new P135Candy().candy2(new int[]{1, 2, 2}));
     }
 
     @Test
     public void testP148SortList() {
         System.out.println(new P148SortList().sortList(head));
     }
+
+    @Test
+    public void testP164MaximumGap() {
+        int[] nums = new int[]{3, 6, 9, 1};
+        Assert.assertEquals(3, new P164MaximumGap().maximumGap1(nums));
+        nums = new int[]{1, 10000000};
+        Assert.assertEquals(10000000 - 1, new P164MaximumGap().maximumGap1(nums));
+
+        nums = new int[]{100, 3, 2, 1};
+        Assert.assertEquals(97, new P164MaximumGap().maximumGap1(nums));
+    }
+
     @Test
     public void testP188BestTimeToBuyAndSellStockIV() {
-        System.out.println(new P188BestTimeToBuyAndSellStockIV().maxProfit(4, new int[]{1,2,4,2,5,7,2,4,9,0}));
+        System.out.println(new P188BestTimeToBuyAndSellStockIV().maxProfit(4, new int[]{1, 2, 4, 2, 5, 7, 2, 4, 9, 0}));
     }
 }
