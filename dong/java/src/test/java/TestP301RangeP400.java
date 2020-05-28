@@ -1,3 +1,4 @@
+import org.junit.Assert;
 import org.junit.Test;
 
 /**
@@ -10,6 +11,18 @@ public class TestP301RangeP400 {
         int[] nums = new int[]{5, 2, 6, 1};
         System.out.println(new P325CountSmallerNumbersAfterSelf().countSmaller(nums));
         System.out.println(new P325CountSmallerNumbersAfterSelf().countSmaller1(nums));
+    }
+
+    @Test
+    public void testP327CountRangeSum() {
+        int[] nums = new int[]{-2, 5, -1};
+        Assert.assertEquals(3, new P327CountRangeSum().countRangeSum(nums, -2, 2));
+
+        nums = new int[]{-1, 1};
+        Assert.assertEquals(1, new P327CountRangeSum().countRangeSum(nums, 0, 0));
+
+        nums = new int[]{-2147483647,0,-2147483647,2147483647};
+        Assert.assertEquals(3, new P327CountRangeSum().countRangeSum(nums, 0, 0));
     }
 
     @Test
