@@ -47,6 +47,12 @@ public class TestP201RangeP300 {
     }
 
     @Test
+    public void testP219ContainsDuplicateII() {
+        int[] nums = new int[]{1, 2, 3, 1, 2, 3};
+        Assert.assertEquals(false, new P219ContainsDuplicateII().containsNearbyDuplicate(nums, 2));
+    }
+
+    @Test
     public void testP240Search2DMatrixII() {
         int[][] matrix = new int[][]{
                 {1, 4, 7, 11, 15},
