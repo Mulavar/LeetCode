@@ -9,8 +9,8 @@ public class TestP301RangeP400 {
     @Test
     public void testP325CountSmallerNumbersAfterSelf() {
         int[] nums = new int[]{5, 2, 6, 1};
-        System.out.println(new P325CountSmallerNumbersAfterSelf().countSmaller(nums));
-        System.out.println(new P325CountSmallerNumbersAfterSelf().countSmaller1(nums));
+        System.out.println(new P315CountSmallerNumbersAfterSelf().countSmaller(nums));
+        System.out.println(new P315CountSmallerNumbersAfterSelf().countSmaller1(nums));
     }
 
     @Test
