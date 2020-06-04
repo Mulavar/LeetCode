@@ -47,6 +47,14 @@ public class TestP201RangeP300 {
     }
 
     @Test
+    public void testP204CountPrimes() {
+        Assert.assertEquals(4, new P204CountPrimes().countPrimes(10));
+        Assert.assertEquals(1, new P204CountPrimes().countPrimes(3));
+        Assert.assertEquals(2, new P204CountPrimes().countPrimes(4));
+        Assert.assertEquals(3, new P204CountPrimes().countPrimes(7));
+    }
+
+    @Test
     public void testP219ContainsDuplicateII() {
         int[] nums = new int[]{1, 2, 3, 1, 2, 3};
         Assert.assertEquals(false, new P219ContainsDuplicateII().containsNearbyDuplicate(nums, 2));
