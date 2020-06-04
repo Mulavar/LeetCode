@@ -66,6 +66,24 @@ public class TestP1RangeP100 {
     }
 
     @Test
+    public void testP32LongestValidParentheses() {
+        String s = "()(())";
+        Assert.assertEquals(6, new P32LongestValidParentheses().longestValidParentheses(s));
+        s = "(()";
+        Assert.assertEquals(2, new P32LongestValidParentheses().longestValidParentheses(s));
+        s = ")()";
+        Assert.assertEquals(2, new P32LongestValidParentheses().longestValidParentheses(s));
+        s = ")()())";
+        Assert.assertEquals(4, new P32LongestValidParentheses().longestValidParentheses(s));
+        s = ")(";
+        Assert.assertEquals(0, new P32LongestValidParentheses().longestValidParentheses(s));
+        s = "())";
+        Assert.assertEquals(2, new P32LongestValidParentheses().longestValidParentheses(s));
+        s = "(()())";
+        Assert.assertEquals(6, new P32LongestValidParentheses().longestValidParentheses(s));
+    }
+
+    @Test
     public void testP39CombinationSum() {
         int[] candidates = new int[]{2, 3, 6, 7};
         int target = 7;
@@ -87,18 +105,39 @@ public class TestP1RangeP100 {
     }
 
     @Test
+    public void testP56MergeIntervals() {
+        int[][] datas = new int[][]{
+                {2, 6},
+                {1, 3},
+                {15, 18},
+                {8, 10},
+        };
+
+        int[][] merge = new P56MergeIntervals().merge(datas);
+        System.out.println(Arrays.deepToString(merge));
+    }
+
+    @Test
     public void testP57InsertIntervals() {
         int[][] datas = new int[][]{
-                {1, 3},
-                {2, 6},
+                {1, 2},
+                {3, 6},
                 {8, 10},
                 {15, 18},
         };
 
         int[][] merge = new P57InsertIntervals().insert(datas, new int[]{2, 5});
-        for (int[] ints : merge) {
-            System.out.println(Arrays.toString(ints));
-        }
+        System.out.println(Arrays.deepToString(merge));
+
+        int[][] datas1 = new int[][]{
+                {1, 2},
+                {3, 5},
+                {6, 7},
+                {8, 10},
+                {12, 16},
+        };
+        int[][] merge1 = new P57InsertIntervals().insert1(datas1, new int[]{4, 8});
+        System.out.println(Arrays.deepToString(merge1));
     }
 
     @Test
