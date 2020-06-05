@@ -1,6 +1,13 @@
 package jzoffer;
 
+import bean.FenwickTree;
+
+import java.util.Arrays;
+import java.util.HashMap;
+
 /**
+ * 在数组中的两个数字，如果前面一个数字大于后面的数字，则这两个数字组成一个逆序对。输入一个数组，求出这个数组中的逆序对的总数。
+ *
  * @author Lam
  * @ClassName P51
  * @date 2020/5/28
@@ -9,7 +16,7 @@ public class P51 {
     int pairs = 0;
 
     public int reversePairs(int[] nums) {
-        merge(nums, 0, nums.length-1);
+        merge(nums, 0, nums.length - 1);
         return pairs;
     }
 
@@ -49,11 +56,28 @@ public class P51 {
         }
     }
 
-    public static void main(String[] args) {
-        int[] nums = {
-                3, 2, 4, 6, 5, 1
-        };
+    public int reversePairs1(int[] nums) {
+        int rank = 1;
+        int n = nums.length;
+        int[] ranks = new int[n];
+        System.arraycopy(nums, 0, ranks, 0, n);
+        Arrays.sort(ranks);
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for (int r : ranks) {
+            if (!map.containsKey(r)) {
+                map.put(r, rank++);
+            }
+        }
 
-        System.out.println(new P51().reversePairs(nums));
+        FenwickTree tree = new FenwickTree(nums.length);
+        int result = 0;
+        for (int i = nums.length - 1; i >= 0; i--) {
+            int r = map.get(nums[i]);
+            result += tree.query(r - 1);
+            tree.update(r, 1);
+        }
+
+        return result;
     }
+
 }
