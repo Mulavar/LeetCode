@@ -73,4 +73,28 @@ public class TestAll {
 
         Assert.assertEquals(new P51().reversePairs(nums), new P51().reversePairs1(nums1));
     }
+
+    @Test
+    public void testP56_1() {
+        int[] nums = {4, 1, 4, 5};
+        System.out.println(Arrays.toString(new P56_1().singleNumbers(nums)));
+    }
+
+    @Test
+    public void testP56_2() {
+        int[] nums = {3, 4, 3, 3};
+        System.out.println(new P56_2().singleNumber(nums));
+    }
+
+    @Test
+    public void testP57_2() {
+        int target = 9;
+        System.out.println(Arrays.deepToString(new P57_2().findContinuousSequence(target)));
+    }
+    @Test
+    public void testP58_1(){
+        String s = " hello world.";
+        System.out.println(new P58_1().reverseWords(s));
+    }
+
 }
