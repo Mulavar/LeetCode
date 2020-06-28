@@ -91,10 +91,21 @@ public class TestAll {
         int target = 9;
         System.out.println(Arrays.deepToString(new P57_2().findContinuousSequence(target)));
     }
+
     @Test
-    public void testP58_1(){
+    public void testP58_1() {
         String s = " hello world.";
         System.out.println(new P58_1().reverseWords(s));
     }
 
+    @Test
+    public void testP59_1() {
+        int[] nums = {1, 3, -1, -3, 5, 3, 6, 7};
+        int k = 3;
+        System.out.println(Arrays.toString(new P59_1().maxSlidingWindow(nums, k)));
+
+        nums = new int[]{1, 3, 1, 2, 0, 5};
+        System.out.println(Arrays.toString(new P59_1().maxSlidingWindow(nums, k)));
+
+    }
 }
