@@ -108,4 +108,9 @@ public class TestAll {
         System.out.println(Arrays.toString(new P59_1().maxSlidingWindow(nums, k)));
 
     }
+
+    @Test
+    public void testP60() {
+        System.out.println(Arrays.toString(new P60().twoSum(2)));
+    }
 }
