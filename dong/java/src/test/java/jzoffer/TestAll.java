@@ -26,6 +26,12 @@ public class TestAll {
     }
 
     @Test
+    public void testP3() {
+        int[] nums = new int[]{2, 3, 1, 0, 2, 5, 3};
+        Assert.assertEquals(2, new P3().findRepeatNumber(nums));
+    }
+
+    @Test
     public void testP29() {
         System.out.println(Arrays.toString(new P29().spiralOrder(matrix)));
     }
