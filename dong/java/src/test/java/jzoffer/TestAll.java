@@ -32,6 +32,16 @@ public class TestAll {
     }
 
     @Test
+    public void testP10_2() {
+        Assert.assertEquals(21, new P10_2().numWays(7));
+    }
+
+    @Test
+    public void testP14_1() {
+        Assert.assertEquals(36, new P14_1().cuttingRope(10));
+    }
+
+    @Test
     public void testP29() {
         System.out.println(Arrays.toString(new P29().spiralOrder(matrix)));
     }

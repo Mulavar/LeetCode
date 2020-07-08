@@ -1,4 +1,4 @@
-import java.util.Arrays;
+import java.util.*;
 
 /**
  * 给定不同面额的硬币 coins 和一个总金额 amount。编写一个函数来计算可以凑成总金额所需的最少的硬币个数。
@@ -33,6 +33,24 @@ public class P322CoinChange {
 
         //使用暴力递归法，会有很多重复的无效状态
         return Math.min(solve(coins, idx, amount - coins[idx]) + 1, solve(coins, idx + 1, amount));
+    }
+
+    public int coinChange1(int[] coins, int amount) {
+        int n = coins.length;
+        //i j 前i种硬币，价值为j最少需要多少个
+        //dp[i][j] = min(dp[i][j-coins[i], dp[i-1][j]) + 1;
+        int[] dp = new int[amount + 1];
+        for (int j = 1; j <= amount; j++) {
+            dp[j] = amount + 1;
+        }
+
+        for (int i = 0; i < n; i++) {
+            for (int j = coins[i]; j <= amount; j++) {
+                dp[j] = Math.min(dp[j - coins[i]] + 1, dp[j]);
+            }
+        }
+
+        return dp[amount] > amount ? -1 : dp[amount];
     }
 
     public static void main(String[] args) {
