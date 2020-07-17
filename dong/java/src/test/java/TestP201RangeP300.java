@@ -99,4 +99,19 @@ public class TestP201RangeP300 {
         Assert.assertEquals(Arrays.toString(new P239SlidingWindowMaximum().maxSlidingWindow(nums, 3)), Arrays.toString(new P239SlidingWindowMaximum().maxSlidingWindow2(nums, 3)));
 
     }
+
+    @Test
+    public void testP253MeetingRoomsII() {
+        int[][] meetings = new int[][]{
+                {7, 10},
+                {2, 4},
+        };
+
+        Assert.assertEquals(1, new P253MeetingRoomsII().minMeetingRooms(meetings));
+
+        int[][] meetings1 = new int[][]{
+                {2, 15}, {36, 45}, {9, 29}, {16, 23}, {4, 9}};
+        Assert.assertEquals(2, new P253MeetingRoomsII().minMeetingRooms(meetings1));
+    }
+
 }

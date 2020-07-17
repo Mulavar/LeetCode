@@ -96,6 +96,12 @@ public class TestP1RangeP100 {
     }
 
     @Test
+    public void testP51NQueensII() {
+        Assert.assertEquals(2, new P52NQueensII().totalNQueens(4));
+        Assert.assertEquals(4, new P52NQueensII().totalNQueens(6));
+    }
+
+    @Test
     public void testP54SpiralMatrix() {
         System.out.println(new P54SpiralMatrix().spiralOrder(matrix2));
         prepare();
