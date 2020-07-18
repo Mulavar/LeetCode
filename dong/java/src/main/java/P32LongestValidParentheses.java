@@ -115,7 +115,7 @@ public class P32LongestValidParentheses {
             if (ch == '(') {
                 stack.push(i);
             } else {
-                int left = stack.pop();
+                stack.pop();
                 if (stack.isEmpty()) {
                     stack.push(i);
                 } else {
@@ -126,6 +126,10 @@ public class P32LongestValidParentheses {
         return result;
     }
 
+    /**
+     * 1. 最长有效括号串，不管从左往右还是从右往左其左右括号数一样，利用这个特性
+     * 2. 从左往右如果出现右括号数大于左括号时，则需要重新寻找最长有效括号，逆序遍历同
+     */
     public int longestValidParentheses3(String s) {
         int left = 0;
         int right = 0;

@@ -11,11 +11,14 @@ import java.util.Queue;
 public class P310MinimumHeightTrees {
     public List<Integer> findMinHeightTrees(int n, int[][] edges) {
         int[] degree = new int[n];
+
+        // 记录每个节点的度
         for (int i = 0; i < edges.length; i++) {
             degree[edges[i][0]]++;
             degree[edges[i][1]]++;
         }
 
+        // 初始化，把所有度为1（在最外圈）的节点入队
         Queue<Integer> queue = new LinkedList<Integer>();
         ArrayList<Integer> result = new ArrayList<>();
         if (n == 1) {
@@ -44,6 +47,7 @@ public class P310MinimumHeightTrees {
             }
         }
 
+        // 每次弹出最外圈的节点，找到最内圈的节点即可找到最小高度树的根节点
         while (!queue.isEmpty()) {
             result = new ArrayList<>();
             int size = queue.size();
@@ -51,24 +55,19 @@ public class P310MinimumHeightTrees {
             while (size != 0) {
                 int node = queue.poll();
                 result.add(node);
+
                 for (int nextNode : lists.get(node)) {
                     degree[nextNode]--;
+                    // 只加入度为1的节点
                     if (degree[nextNode] == 1) {
                         queue.offer(nextNode);
                     }
                 }
+
                 size--;
             }
         }
 
         return result;
-    }
-
-    public static void main(String[] args) {
-        int[][] edges = new int[][]{
-                {1, 0}, {1, 2}, {1, 3},
-        };
-        int n = 4;
-        new P310MinimumHeightTrees().findMinHeightTrees(n, edges);
     }
 }

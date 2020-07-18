@@ -1,11 +1,28 @@
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.Arrays;
+
 /**
  * @author Lam
  * @date 2020/5/8
  */
 public class TestP301RangeP400 {
+    @Test
+    public void testP301RemoveInvalidParentheses() {
+        String s = "()())()";
+        System.out.println(new P301RemoveInvalidParentheses().removeInvalidParentheses(s));
+    }
+
+    @Test
+    public void testP310MinimumHeightTrees() {
+        int[][] edges = new int[][]{
+                {1, 0}, {1, 2}, {1, 3},
+        };
+        int n = 4;
+        Assert.assertEquals(Arrays.asList(1), new P310MinimumHeightTrees().findMinHeightTrees(n, edges));
+    }
+
     @Test
     public void testP312BurstBalloons() {
         int[] nums = new int[]{5};
