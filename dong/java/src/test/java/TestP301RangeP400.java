@@ -15,6 +15,16 @@ public class TestP301RangeP400 {
     }
 
     @Test
+    public void testP307RangeSumQueryMutable() {
+        int[] nums = new int[]{1, 3, 5};
+        P307RangeSumQueryMutable.NumArray array = new P307RangeSumQueryMutable().new NumArray(nums);
+        Assert.assertEquals(9, array.sumRange(0, 2));
+        array.update(1, 2);
+        Assert.assertEquals(8, array.sumRange(0, 2));
+
+    }
+
+    @Test
     public void testP310MinimumHeightTrees() {
         int[][] edges = new int[][]{
                 {1, 0}, {1, 2}, {1, 3},
@@ -33,10 +43,17 @@ public class TestP301RangeP400 {
     }
 
     @Test
-    public void testP325CountSmallerNumbersAfterSelf() {
+    public void testP315CountSmallerNumbersAfterSelf() {
         int[] nums = new int[]{5, 2, 6, 1};
         System.out.println(new P315CountSmallerNumbersAfterSelf().countSmaller(nums));
         System.out.println(new P315CountSmallerNumbersAfterSelf().countSmaller1(nums));
+    }
+
+    @Test
+    public void testP325MaximumSizeSubarraySumEqualsK() {
+        int[] nums = new int[]{1, -1, 5, -2, 3};
+        int k = 3;
+        System.out.println(new P325MaximumSizeSubarraySumEqualsK().maxSubArrayLen(nums, k));
     }
 
     @Test
@@ -47,7 +64,7 @@ public class TestP301RangeP400 {
         nums = new int[]{-1, 1};
         Assert.assertEquals(1, new P327CountRangeSum().countRangeSum(nums, 0, 0));
 
-        nums = new int[]{-2147483647,0,-2147483647,2147483647};
+        nums = new int[]{-2147483647, 0, -2147483647, 2147483647};
         Assert.assertEquals(3, new P327CountRangeSum().countRangeSum(nums, 0, 0));
     }
 
