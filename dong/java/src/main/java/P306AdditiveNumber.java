@@ -19,32 +19,45 @@ public class P306AdditiveNumber {
         String pre;
         String cur;
         String next;
-        for (int i = 1; i < num.length() - 1; i++) {
-            for (int j = i; j < num.length() - 1; j++) {
+
+        // pre = first = (0, i-1)
+        for (int i = 1; i <= num.length() - 2; i++) {
+
+            // cur = second = (i, j-1)
+            for (int j = i + 1; j <= num.length() - 1; j++) {
                 int k = j;
                 pre = num.substring(0, i);
-                cur = num.substring(i, k + 1);
+                cur = num.substring(i, k);
+
+                // 前缀为0的数字不合格，全部跳出
+                // pre可以考虑直接返回false
+                if (pre.length() > 1 && pre.charAt(0) == '0') {
+                    break;
+                }
+
+                if (cur.length() > 1 && cur.charAt(0) == '0') {
+                    break;
+                }
+
+
                 next = new BigInteger(pre).add(new BigInteger(cur)).toString();
-                System.out.println("i:" + i + ", j:" + j + ", pre:" + pre + ", cur:" + cur + ", next:" + next);
-                while (next.length() < num.length() - k - 1 && num.substring(k + 1, k + 1 + next.length()).equals(next)) {
+
+                // 不断往后遍历，找下一个累加和
+                while (next.length() < num.length() - k && num.startsWith(next, k)) {
                     pre = cur;
                     cur = next;
                     k += next.length();
                     next = new BigInteger(pre).add(new BigInteger(cur)).toString();
-                    System.out.println("i:" + i + ", j:" + j + ", pre:" + pre + ", cur:" + cur + ", next:" + next);
                 }
-                System.out.println("i:" + i + ", j:" + j + ", pre:" + pre + ", cur:" + cur + ", next:" + next);
-                if (next.length() == num.length() - k - 1 && num.substring(k + 1, k + 1 + next.length()).equals(next)) {
+
+                // 遍历到最后一位，确定为累加数
+                if (next.length() == num.length() - k && num.startsWith(next, k)) {
                     return true;
+                } else if (next.length() > num.length() - k) {
+                    break;
                 }
             }
         }
         return false;
-    }
-
-    public static void main(String[] args) {
-//        System.out.println(new P306AdditiveNumber().isAdditiveNumber("112358"));
-//        System.out.println(new P306AdditiveNumber().isAdditiveNumber("199100199"));
-        System.out.println(new P306AdditiveNumber().isAdditiveNumber("1023"));
     }
 }

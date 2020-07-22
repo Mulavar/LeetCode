@@ -69,6 +69,16 @@ public class TestP301RangeP400 {
     }
 
     @Test
+    public void testP329LongestIncreasingPathInMatrix() {
+        int[][] matrix = {
+                {9, 9, 4},
+                {6, 6, 8},
+                {2, 1, 1},
+        };
+        Assert.assertEquals(4, new P329LongestIncreasingPathInMatrix().longestIncreasingPath(matrix));
+    }
+
+    @Test
     public void testP377CombinationSumIV() {
         new P377CombinationSumIV().combinationSum4(new int[]{1, 2, 3}, 4);
     }
