@@ -79,6 +79,18 @@ public class TestP301RangeP400 {
     }
 
     @Test
+    public void testP335SelfCrossing() {
+        int[] x = new int[]{2,1,1,2};
+        Assert.assertTrue(new P335SelfCrossing().isSelfCrossing(x));
+        x = new int[]{1, 1, 1, 1};
+        Assert.assertTrue(new P335SelfCrossing().isSelfCrossing(x));
+        x = new int[]{1, 2, 3, 4};
+        Assert.assertFalse(new P335SelfCrossing().isSelfCrossing(x));
+        x = new int[]{3, 3, 4, 2, 2};
+        Assert.assertFalse(new P335SelfCrossing().isSelfCrossing(x));
+    }
+
+    @Test
     public void testP377CombinationSumIV() {
         new P377CombinationSumIV().combinationSum4(new int[]{1, 2, 3}, 4);
     }

@@ -97,7 +97,18 @@ public class TestP201RangeP300 {
         int[] nums = new int[]{1, 3, -1, -3, 5, 3, 6, 7};
         Assert.assertEquals(Arrays.toString(new P239SlidingWindowMaximum().maxSlidingWindow(nums, 3)), Arrays.toString(new P239SlidingWindowMaximum().maxSlidingWindow1(nums, 3)));
         Assert.assertEquals(Arrays.toString(new P239SlidingWindowMaximum().maxSlidingWindow(nums, 3)), Arrays.toString(new P239SlidingWindowMaximum().maxSlidingWindow2(nums, 3)));
+    }
 
+    @Test
+    public void testP243ShortestWordDistance() {
+        String[] words = new String[]{"a", "b", "c", "d", "d"};
+        Assert.assertEquals(3, new P243ShortestWordDistance().shortestDistance(words, "a", "d"));
+    }
+
+    @Test
+    public void testP245ShortestWordDistanceIII() {
+        String[] words = new String[]{"a", "b", "c", "d", "d"};
+        System.out.println(new P245ShortestWordDistanceIII().shortestDistance(words, "d", "d"));
     }
 
     @Test
@@ -114,4 +125,24 @@ public class TestP201RangeP300 {
         Assert.assertEquals(2, new P253MeetingRoomsII().minMeetingRooms(meetings1));
     }
 
+    @Test
+    public void testP265PaintHouseII() {
+        int[][] costs = new int[][]{{1, 5, 3}, {2, 9, 4}};
+        Assert.assertEquals(5, new P265PaintHouseII().minCostII(costs));
+
+        costs = new int[][]{
+                {4, 16}, {15, 5}, {18, 17}, {10, 12}, {14, 10}, {3, 10}, {2, 11}, {18, 14}, {9, 1}, {14, 13},
+        };
+        Assert.assertEquals(101, new P265PaintHouseII().minCostII(costs));
+    }
+
+    @Test
+    public void testP296BestMeetingPoint() {
+        int[][] grid = new int[][]{
+                {1, 0, 0, 0, 1},
+                {0, 0, 0, 0, 0},
+                {0, 0, 1, 0, 0},
+        };
+        Assert.assertEquals(6, new P296BestMeetingPoint().minTotalDistance(grid));
+    }
 }
