@@ -50,6 +50,12 @@ public class TestP301RangeP400 {
     }
 
     @Test
+    public void testP316RemoveDuplicateLetters() {
+        Assert.assertEquals("abc", new P316RemoveDuplicateLetters().removeDuplicateLetters("bcabc"));
+        Assert.assertEquals("bca", new P316RemoveDuplicateLetters().removeDuplicateLetters("bcab"));
+    }
+
+    @Test
     public void testP325MaximumSizeSubarraySumEqualsK() {
         int[] nums = new int[]{1, -1, 5, -2, 3};
         int k = 3;
