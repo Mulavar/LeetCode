@@ -1,7 +1,9 @@
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * @author Lam
@@ -12,6 +14,19 @@ public class TestP301RangeP400 {
     public void testP301RemoveInvalidParentheses() {
         String s = "()())()";
         System.out.println(new P301RemoveInvalidParentheses().removeInvalidParentheses(s));
+    }
+
+    @Test
+    public void testP305NumberIslandsII() {
+        int[][] positions = new int[][]{
+                {0, 0}, {0, 1}, {1, 2}, {2, 1},
+        };
+        List<Integer> expected = new ArrayList<>();
+        expected.add(1);
+        expected.add(1);
+        expected.add(2);
+        expected.add(3);
+        Assert.assertEquals(expected, new P305NumberIslandsII().numIslands2(3, 3, positions));
     }
 
     @Test
@@ -50,6 +65,12 @@ public class TestP301RangeP400 {
     }
 
     @Test
+    public void testP318MaximumProductWordLengths() {
+        String[] words = new String[]{"abcw", "baz", "foo", "bar", "xtfn", "abcdef"};
+        Assert.assertEquals(16, new P318MaximumProductWordLengths().maxProduct(words));
+    }
+
+    @Test
     public void testP325MaximumSizeSubarraySumEqualsK() {
         int[] nums = new int[]{1, -1, 5, -2, 3};
         int k = 3;
@@ -80,7 +101,7 @@ public class TestP301RangeP400 {
 
     @Test
     public void testP335SelfCrossing() {
-        int[] x = new int[]{2,1,1,2};
+        int[] x = new int[]{2, 1, 1, 2};
         Assert.assertTrue(new P335SelfCrossing().isSelfCrossing(x));
         x = new int[]{1, 1, 1, 1};
         Assert.assertTrue(new P335SelfCrossing().isSelfCrossing(x));

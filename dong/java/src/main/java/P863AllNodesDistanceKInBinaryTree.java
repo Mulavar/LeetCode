@@ -25,6 +25,8 @@ public class P863AllNodesDistanceKInBinaryTree {
         }
         Map<TreeNode, TreeNode> parent = new HashMap<>();
         Set<TreeNode> visited = new HashSet<>();
+
+        // 遍历记录父结点
         preOrder(root, parent);
 
         Queue<TreeNode> queue = new LinkedList<>();
@@ -33,6 +35,7 @@ public class P863AllNodesDistanceKInBinaryTree {
         int last = 1;
         int cur = 0;
 
+        // 使用BFS遍历
         while (!queue.isEmpty()) {
             TreeNode node = queue.poll();
             last--;
@@ -80,6 +83,11 @@ public class P863AllNodesDistanceKInBinaryTree {
         }
     }
 
+    /**
+     * 对一个结点分两种情况：
+     *  1. 含目标结点（假设在左子树）
+     *  2. 是目标结点的子树
+     */
     public List<Integer> distanceK1(TreeNode root, TreeNode target, int K) {
         List<Integer> res = new ArrayList<>();
         dfs(root, target, K, res);
@@ -97,7 +105,6 @@ public class P863AllNodesDistanceKInBinaryTree {
         int l = dfs(root.left, target, K, res);
         int r = dfs(root.right, target, K, res);
         if (l != -1) {
-            System.out.println("cur:" + root.val + ", l:" + l);
             if (l == K) {
                 res.add(root.val);
             } else if (l < K) {
@@ -106,7 +113,6 @@ public class P863AllNodesDistanceKInBinaryTree {
             return l + 1;
         }
         if (r != -1) {
-            System.out.println("cur:" + root.val + ", r:" + r);
             if (r == K) {
                 res.add(root.val);
             } else if (r < K) {
