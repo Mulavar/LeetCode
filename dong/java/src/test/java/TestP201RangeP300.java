@@ -126,6 +126,15 @@ public class TestP201RangeP300 {
     }
 
     @Test
+    public void testP255VerifyPreorderSequenceInBinarySearchTree() {
+        int[] preorder = new int[]{1, 4, 3, 5};
+        Assert.assertTrue(new P255VerifyPreorderSequenceInBinarySearchTree().verifyPreorder(preorder));
+
+        preorder = new int[]{5,2,6,1,3};
+        Assert.assertFalse(new P255VerifyPreorderSequenceInBinarySearchTree().verifyPreorder(preorder));
+    }
+
+    @Test
     public void testP265PaintHouseII() {
         int[][] costs = new int[][]{{1, 5, 3}, {2, 9, 4}};
         Assert.assertEquals(5, new P265PaintHouseII().minCostII(costs));
