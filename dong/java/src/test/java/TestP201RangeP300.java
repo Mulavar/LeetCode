@@ -1,4 +1,5 @@
 import bean.ListNode;
+import bean.TreeNode;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -112,6 +113,18 @@ public class TestP201RangeP300 {
     }
 
     @Test
+    public void testP250CountUnivalueSubtrees() {
+        TreeNode root = new TreeNode(5);
+        root.left = new TreeNode(1);
+        root.left.left = new TreeNode(5);
+        root.left.right = new TreeNode(5);
+
+        root.right = new TreeNode(5);
+        root.right.right = new TreeNode(5);
+        Assert.assertEquals(4, new P250CountUnivalueSubtrees().countUnivalSubtrees(root));
+    }
+
+    @Test
     public void testP253MeetingRoomsII() {
         int[][] meetings = new int[][]{
                 {7, 10},
@@ -130,8 +143,34 @@ public class TestP201RangeP300 {
         int[] preorder = new int[]{1, 4, 3, 5};
         Assert.assertTrue(new P255VerifyPreorderSequenceInBinarySearchTree().verifyPreorder(preorder));
 
-        preorder = new int[]{5,2,6,1,3};
+        preorder = new int[]{5, 2, 6, 1, 3};
         Assert.assertFalse(new P255VerifyPreorderSequenceInBinarySearchTree().verifyPreorder(preorder));
+    }
+
+    @Test
+    public void testP2593SumSmaller() {
+        int[] nums = new int[]{-2, 0, 1, 3};
+        Assert.assertEquals(2, new P2593SumSmaller().threeSumSmaller(nums, 2));
+    }
+
+    @Test
+    public void testP261GraphValidTree() {
+        int[][] edges = new int[][]{
+                {0, 1},
+                {0, 2},
+                {0, 3},
+                {1, 4},
+        };
+        Assert.assertTrue(new P261GraphValidTree().validTree(5, edges));
+
+        edges = new int[][]{
+                {0, 1},
+                {1, 2},
+                {2, 3},
+                {1, 3},
+                {1, 4},
+        };
+        Assert.assertFalse(new P261GraphValidTree().validTree(5, edges));
     }
 
     @Test
@@ -143,6 +182,19 @@ public class TestP201RangeP300 {
                 {4, 16}, {15, 5}, {18, 17}, {10, 12}, {14, 10}, {3, 10}, {2, 11}, {18, 14}, {9, 1}, {14, 13},
         };
         Assert.assertEquals(101, new P265PaintHouseII().minCostII(costs));
+    }
+
+    @Test
+    public void testP290WordPattern() {
+        String pattern = "abba";
+        String words = "dog cat cat fish";
+        Assert.assertFalse(new P290WordPattern().wordPattern(pattern, words));
+
+        words = "dog cat cat dog";
+        Assert.assertTrue(new P290WordPattern().wordPattern(pattern, words));
+
+        words = "dog dog dog dog";
+        Assert.assertFalse(new P290WordPattern().wordPattern(pattern, words));
     }
 
     @Test
