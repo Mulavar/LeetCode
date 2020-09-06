@@ -65,6 +65,17 @@ public class TestP301RangeP400 {
     }
 
     @Test
+    public void testP317ShortestDistanceFromAllBuildings() {
+        int[][] grid = new int[][]{
+                {1, 0, 2, 0, 1},
+                {0, 0, 0, 0, 0},
+                {0, 0, 1, 0, 0}
+        };
+
+        Assert.assertEquals(7, new P317ShortestDistanceFromAllBuildings().shortestDistance(grid));
+    }
+
+    @Test
     public void testP318MaximumProductWordLengths() {
         String[] words = new String[]{"abcw", "baz", "foo", "bar", "xtfn", "abcdef"};
         Assert.assertEquals(16, new P318MaximumProductWordLengths().maxProduct(words));
@@ -97,6 +108,7 @@ public class TestP301RangeP400 {
                 {2, 1, 1},
         };
         Assert.assertEquals(4, new P329LongestIncreasingPathInMatrix().longestIncreasingPath(matrix));
+        Assert.assertEquals(4, new P329LongestIncreasingPathInMatrix().longestIncreasingPath1(matrix));
     }
 
     @Test

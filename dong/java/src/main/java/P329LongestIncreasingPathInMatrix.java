@@ -1,4 +1,5 @@
-import java.util.Arrays;
+import java.util.ArrayDeque;
+import java.util.Queue;
 
 /**
  * 给定一个整数矩阵，找出最长递增路径的长度。
@@ -57,6 +58,57 @@ public class P329LongestIncreasingPathInMatrix {
 
     private boolean isValid(int row, int col, int m, int n) {
         return row >= 0 && row < m && col >= 0 && col < n;
+    }
+
+    public int longestIncreasingPath1(int[][] matrix) {
+        int m = matrix.length;
+        if (m == 0) {
+            return 0;
+        }
+        int n = matrix[0].length;
+
+        int[][] outDegrees = new int[m][n];
+        Queue<int[]> queue = new ArrayDeque<>();
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                for (int k = 0; k < 4; k++) {
+                    int nx = i + dx[k];
+                    int ny = j + dy[k];
+                    if (isValid(nx, ny, m, n) && matrix[i][j] < matrix[nx][ny]) {
+                        outDegrees[i][j]++;
+                    }
+                }
+
+                // 初始化队列，加入出度为0的
+                if (outDegrees[i][j] == 0) {
+                    queue.offer(new int[]{i, j});
+                }
+            }
+        }
+
+        int ans = 0;
+        while (!queue.isEmpty()) {
+            ans++;
+
+            int size = queue.size();
+            for (int i = 0; i < size; i++) {
+                int[] node = queue.poll();
+                int x = node[0];
+                int y = node[1];
+                for (int j = 0; j < 4; j++) {
+                    int nx = x + dx[j];
+                    int ny = y + dy[j];
+                    if (isValid(nx, ny, m, n) && matrix[nx][ny] < matrix[x][y]) {
+                        outDegrees[nx][ny]--;
+                        if (outDegrees[nx][ny] == 0) {
+                            queue.offer(new int[]{nx, ny});
+                        }
+                    }
+                }
+            }
+        }
+
+        return ans;
     }
 
 }

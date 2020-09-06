@@ -206,4 +206,19 @@ public class TestP201RangeP300 {
         };
         Assert.assertEquals(6, new P296BestMeetingPoint().minTotalDistance(grid));
     }
+
+    @Test
+    public void testP300LongestIncreasingSubsequence() {
+        int[] nums = new int[]{10,9,2,5,3,7,101,18};
+        Assert.assertEquals(4, new P300LongestIncreasingSubsequence().lengthOfLIS(nums));
+        Assert.assertEquals(4, new P300LongestIncreasingSubsequence().lengthOfLIS1(nums));
+
+        nums = new int[]{-2, -1};
+        Assert.assertEquals(2, new P300LongestIncreasingSubsequence().lengthOfLIS(nums));
+        Assert.assertEquals(2, new P300LongestIncreasingSubsequence().lengthOfLIS1(nums));
+
+        nums = new int[]{4, 10, 4, 3, 8, 9};
+        Assert.assertEquals(3, new P300LongestIncreasingSubsequence().lengthOfLIS1(nums));
+
+    }
 }
