@@ -7,8 +7,14 @@ package bean;
  * @date 2020/6/1
  */
 public class FenwickTree {
-    // 从1开始计数
+    /**
+     * 树状数组，从1开始计数
+     */
     int[] tree;
+
+    /**
+     * 数组长度
+     */
     int n;
 
     public FenwickTree(int n) {

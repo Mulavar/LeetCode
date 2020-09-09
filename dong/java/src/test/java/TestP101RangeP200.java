@@ -46,6 +46,12 @@ public class TestP101RangeP200 {
     }
 
     @Test
+    public void testP128LongestConsecutiveSequence() {
+        int[] nums = new int[]{100, 4, 200, 1, 3, 2};
+        Assert.assertEquals(4, new P128LongestConsecutiveSequence().longestConsecutive2(nums));
+    }
+
+    @Test
     public void testP135Candy() {
         int[] grades = new int[]{29, 51, 87, 87, 72, 12};
         Assert.assertEquals(12, new P135Candy().candy(grades));

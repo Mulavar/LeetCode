@@ -40,6 +40,30 @@ public class TestP301RangeP400 {
     }
 
     @Test
+    public void testP308RangeSumQuery2DMutable() {
+        int[][] matrix = new int[][]{
+                {1, 2, 3},
+                {4, 5, 6},
+                {7, 8, 9}
+        };
+//        P308RangeSumQuery2DMutable.NumMatrix tree = new P308RangeSumQuery2DMutable().new NumMatrix(matrix);
+//        Assert.assertEquals(12, tree.sumRegion(0, 0, 1, 1));
+//        tree.update(0, 0, 2);
+//
+//        Assert.assertEquals(13, tree.sumRegion(0, 0, 1, 1));
+
+        matrix = new int[][]{
+                {2, 4},
+                {-3, 5}
+        };
+        P308RangeSumQuery2DMutable.NumMatrix tree1 = new P308RangeSumQuery2DMutable().new NumMatrix(matrix);
+        tree1.update(0, 1, 3);
+        tree1.update(1, 1, -3);
+        tree1.update(0, 1, 1);
+        Assert.assertEquals(-3, tree1.sumRegion(0, 0, 1, 1));
+    }
+
+    @Test
     public void testP310MinimumHeightTrees() {
         int[][] edges = new int[][]{
                 {1, 0}, {1, 2}, {1, 3},
@@ -121,6 +145,48 @@ public class TestP301RangeP400 {
         Assert.assertFalse(new P335SelfCrossing().isSelfCrossing(x));
         x = new int[]{3, 3, 4, 2, 2};
         Assert.assertFalse(new P335SelfCrossing().isSelfCrossing(x));
+    }
+
+    @Test
+    public void testP336PalindromePairs() {
+        String[] words = new String[]{"abcd", "dcba", "lls", "s", "sssll"};
+        System.out.println(new P336PalindromePairs().palindromePairs(words));
+
+        words = new String[]{"a", ""};
+
+        System.out.println(new P336PalindromePairs().palindromePairs(words));
+    }
+
+    @Test
+    public void testP354RussianDollEnvelopes() {
+        int[][] envelopes = new int[][]{
+                {5, 4},
+                {6, 4},
+                {6, 7},
+                {2, 3}
+        };
+        Assert.assertEquals(3, new P354RussianDollEnvelopes().maxEnvelopes(envelopes));
+
+        envelopes = new int[][]{
+                {4, 5}, {4, 6}, {6, 7}, {2, 3}, {1, 1}
+        };
+        Assert.assertEquals(4, new P354RussianDollEnvelopes().maxEnvelopes(envelopes));
+
+        envelopes = new int[][]{
+                {1, 3}, {3, 5}, {6, 7}, {6, 8}, {8, 4}, {9, 5}
+        };
+        Assert.assertEquals(3, new P354RussianDollEnvelopes().maxEnvelopes(envelopes));
+
+        envelopes = new int[][]{
+                {30, 50}, {12, 2}, {3, 4}, {12, 15}
+        };
+        Assert.assertEquals(3, new P354RussianDollEnvelopes().maxEnvelopes(envelopes));
+
+        envelopes = new int[][]{
+                {2, 100}, {3, 200}, {4, 300}, {5, 500}, {5, 400}, {5, 250}, {6, 370}, {6, 360}, {7, 380}
+        };
+        Assert.assertEquals(5, new P354RussianDollEnvelopes().maxEnvelopes(envelopes));
+
     }
 
     @Test
