@@ -56,6 +56,20 @@ public class TestP301RangeP400 {
     }
 
     @Test
+    public void testP321CreateMaximumNumber() {
+        int[] nums1 = new int[]{3, 4, 6, 5};
+        int[] nums2 = new int[]{9, 1, 2, 5, 8, 3};
+        Assert.assertArrayEquals(new int[]{9, 8, 6, 5, 3}, new P321CreateMaximumNumber().maxNumber(nums1, nums2, 5));
+
+        nums1 = new int[]{6, 7};
+        nums2 = new int[]{6, 0, 4};
+        Assert.assertArrayEquals(new int[]{6, 7, 6, 0, 4}, new P321CreateMaximumNumber().maxNumber(nums1, nums2, 5));
+
+        nums1 = new int[]{2,5,6,4,4,0};
+        nums2 = new int[]{7,3,8,0,6,5,7,6,2};
+        System.out.println(Arrays.toString(new P321CreateMaximumNumber().maxNumber(nums1, nums2, 15)));
+    }
+    @Test
     public void testP325MaximumSizeSubarraySumEqualsK() {
         int[] nums = new int[]{1, -1, 5, -2, 3};
         int k = 3;
