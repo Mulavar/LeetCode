@@ -214,4 +214,20 @@ public class TestP301RangeP400 {
     public void testP377CombinationSumIV() {
         new P377CombinationSumIV().combinationSum4(new int[]{1, 2, 3}, 4);
     }
+
+    @Test
+    public void testP378KthSmallestElementInASortedMatrix() {
+        int[][] matrix = new int[][]{
+                { 1,  5,  9},
+                {10, 11, 13},
+                {12, 13, 15}
+        };
+        Assert.assertEquals(13, new P378KthSmallestElementInASortedMatrix().kthSmallest(matrix, 8));
+
+        matrix = new int[][] {
+                {1, 2},
+                {1, 3}
+        };
+        Assert.assertEquals(3, new P378KthSmallestElementInASortedMatrix().kthSmallest(matrix, 4));
+    }
 }

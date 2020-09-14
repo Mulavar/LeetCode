@@ -174,6 +174,11 @@ public class TestP201RangeP300 {
     }
 
     @Test
+    public void testP264UglyNumberII() {
+        Assert.assertEquals(45, new P264UglyNumberII().nthUglyNumber(22));
+    }
+
+    @Test
     public void testP265PaintHouseII() {
         int[][] costs = new int[][]{{1, 5, 3}, {2, 9, 4}};
         Assert.assertEquals(5, new P265PaintHouseII().minCostII(costs));
@@ -209,7 +214,7 @@ public class TestP201RangeP300 {
 
     @Test
     public void testP300LongestIncreasingSubsequence() {
-        int[] nums = new int[]{10,9,2,5,3,7,101,18};
+        int[] nums = new int[]{10, 9, 2, 5, 3, 7, 101, 18};
         Assert.assertEquals(4, new P300LongestIncreasingSubsequence().lengthOfLIS(nums));
         Assert.assertEquals(4, new P300LongestIncreasingSubsequence().lengthOfLIS1(nums));
 
