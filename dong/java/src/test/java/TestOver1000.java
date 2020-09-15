@@ -12,6 +12,13 @@ import java.util.List;
  */
 public class TestOver1000 {
     @Test
+    public void testP1028RecoverATreeFromPreorderTraversal() {
+        System.out.println(new P1028RecoverATreeFromPreorderTraversal().recoverFromPreorder("1-2--3--4-5--6--7"));
+        System.out.println(new P1028RecoverATreeFromPreorderTraversal().recoverFromPreorder("1-2--3---4-5--6---7"));
+        System.out.println(new P1028RecoverATreeFromPreorderTraversal().recoverFromPreorder("10-6--10---10"));
+    }
+
+    @Test
     public void testP1143LongestCommonSubsequence() {
         String text1 = "abc";
         String text2 = "kafbdc";
@@ -35,6 +42,5 @@ public class TestOver1000 {
         Assert.assertEquals(17, new P1439FindTheKthSmallestSumOfAMatrixWithSortedRows().kthSmallest(matrix, 9));
         Assert.assertEquals(17, new P1439FindTheKthSmallestSumOfAMatrixWithSortedRows().kthSmallest1(matrix, 9));
         Assert.assertEquals(7, new P1439FindTheKthSmallestSumOfAMatrixWithSortedRows().kthSmallest1(matrix, 5));
-
     }
 }
