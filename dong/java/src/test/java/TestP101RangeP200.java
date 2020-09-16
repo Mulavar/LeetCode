@@ -46,6 +46,20 @@ public class TestP101RangeP200 {
     }
 
     @Test
+    public void testP122BestTimeToBuySellStockII() {
+        int[] nums = new int[]{7, 1, 5, 3, 6, 4};
+        Assert.assertEquals(7, new P122BestTimeToBuySellStockII().maxProfit(nums));
+        int[] nums1 = new int[]{1, 2, 3, 4, 5};
+        Assert.assertEquals(4, new P122BestTimeToBuySellStockII().maxProfit(nums1));
+    }
+
+    @Test
+    public void testP123BestTimeToBuySellStockIII() {
+        int[] prices = new int[]{1, 2, 3, 4, 5};
+        Assert.assertEquals(4, new P123BestTimeToBuySellStockIII().maxProfit(prices));
+    }
+
+    @Test
     public void testP128LongestConsecutiveSequence() {
         int[] nums = new int[]{100, 4, 200, 1, 3, 2};
         Assert.assertEquals(4, new P128LongestConsecutiveSequence().longestConsecutive2(nums));

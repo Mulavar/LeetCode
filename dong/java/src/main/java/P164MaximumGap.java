@@ -13,6 +13,8 @@ public class P164MaximumGap {
         if (n < 2) {
             return 0;
         }
+
+        // 排序后遍历
         Arrays.sort(nums);
         int res = Integer.MIN_VALUE;
         for (int i = 1; i < n; i++) {

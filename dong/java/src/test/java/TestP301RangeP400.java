@@ -46,11 +46,11 @@ public class TestP301RangeP400 {
                 {4, 5, 6},
                 {7, 8, 9}
         };
-//        P308RangeSumQuery2DMutable.NumMatrix tree = new P308RangeSumQuery2DMutable().new NumMatrix(matrix);
-//        Assert.assertEquals(12, tree.sumRegion(0, 0, 1, 1));
-//        tree.update(0, 0, 2);
-//
-//        Assert.assertEquals(13, tree.sumRegion(0, 0, 1, 1));
+        P308RangeSumQuery2DMutable.NumMatrix tree = new P308RangeSumQuery2DMutable().new NumMatrix(matrix);
+        Assert.assertEquals(12, tree.sumRegion(0, 0, 1, 1));
+        tree.update(0, 0, 2);
+
+        Assert.assertEquals(13, tree.sumRegion(0, 0, 1, 1));
 
         matrix = new int[][]{
                 {2, 4},
@@ -61,6 +61,16 @@ public class TestP301RangeP400 {
         tree1.update(1, 1, -3);
         tree1.update(0, 1, 1);
         Assert.assertEquals(-3, tree1.sumRegion(0, 0, 1, 1));
+    }
+
+    @Test
+    public void testP309BestTimeToBuyAndSellStockWithCooldown() {
+        int[] prices = {2, 1, 4, 5, 2, 9, 7};
+        Assert.assertEquals(10, new P309BestTimeToBuyAndSellStockWithCooldown().maxProfit(prices));
+
+        prices = new int[]{1, 2, 4};
+        Assert.assertEquals(3, new P309BestTimeToBuyAndSellStockWithCooldown().maxProfit(prices));
+        Assert.assertEquals(3, new P309BestTimeToBuyAndSellStockWithCooldown().maxProfit1(prices));
     }
 
     @Test

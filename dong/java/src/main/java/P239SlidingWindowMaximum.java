@@ -2,7 +2,8 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 
 /**
- * 给定一个数组 nums，有一个大小为 k 的滑动窗口从数组的最左侧移动到数组的最右侧。你只可以看到在滑动窗口内的 k 个数字。滑动窗口每次只向右移动一位。
+ * 给定一个数组 nums，有一个大小为 k 的滑动窗口从数组的最左侧移动到数组的最右侧。
+ * 你只可以看到在滑动窗口内的 k 个数字。滑动窗口每次只向右移动一位。
  * 返回滑动窗口中的最大值。
  *
  * @author Lam
@@ -21,9 +22,10 @@ public class P239SlidingWindowMaximum {
         int[] weight = new int[n];
 
 
-        Deque<Integer> queue = new ArrayDeque<>();
         //初始化
+        Deque<Integer> queue = new ArrayDeque<>();
         queue.add(0);
+
         for (int i = 1; i < k; i++) {
             while (!queue.isEmpty() && nums[queue.getLast()] < nums[i]) {
                 int idx = queue.removeLast();
@@ -62,8 +64,9 @@ public class P239SlidingWindowMaximum {
 
 
         Deque<Integer> queue = new ArrayDeque<>();
-        //初始化
+        // 初始化
         queue.add(0);
+        // 先加入k个值
         for (int i = 1; i < k; i++) {
             while (!queue.isEmpty() && nums[queue.getLast()] < nums[i]) {
                 queue.removeLast();
@@ -73,12 +76,16 @@ public class P239SlidingWindowMaximum {
 
         result[0] = nums[queue.peek()];
         for (int i = k; i < n; i++) {
+            // 删除窗口外的值
             if (queue.peek() == i - k) {
                 queue.removeFirst();
             }
+
+            // 单调栈删除较小的值
             while (!queue.isEmpty() && nums[queue.getLast()] < nums[i]) {
                 queue.removeLast();
             }
+
             queue.add(i);
             result[i + 1 - k] = nums[queue.peek()];
         }
@@ -86,6 +93,9 @@ public class P239SlidingWindowMaximum {
         return result;
     }
 
+    /**
+     * 将数组按k为单位划分区间，并计算每个区间内当前位置元素左右两边最大元素值
+     */
     public int[] maxSlidingWindow2(int[] nums, int k) {
         int n = nums.length;
 
@@ -109,7 +119,7 @@ public class P239SlidingWindowMaximum {
         }
 
         for (int i = 0; i < n + 1 - k; i++) {
-            result[i] = Math.max(right[i], left[i + k-1]);
+            result[i] = Math.max(right[i], left[i + k - 1]);
         }
 
         return result;

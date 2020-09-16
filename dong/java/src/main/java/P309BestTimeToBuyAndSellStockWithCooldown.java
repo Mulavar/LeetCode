@@ -60,13 +60,4 @@ public class P309BestTimeToBuyAndSellStockWithCooldown {
 
         return Math.max(empty, cool);
     }
-
-    public static void main(String[] args) {
-        int[] prices = {2, 1, 4, 5, 2, 9, 7};
-        System.out.println(new P309BestTimeToBuyAndSellStockWithCooldown().maxProfit(prices));
-
-        prices = new int[]{1, 2, 4};
-        System.out.println(new P309BestTimeToBuyAndSellStockWithCooldown().maxProfit(prices));
-        System.out.println(new P309BestTimeToBuyAndSellStockWithCooldown().maxProfit1(prices));
-    }
 }
