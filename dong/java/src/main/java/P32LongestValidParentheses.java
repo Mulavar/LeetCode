@@ -62,25 +62,26 @@ public class P32LongestValidParentheses {
     }
 
     /**
-     * 使用结构体标记
+     * 使用一个辅助标记数组
      */
     public int longestValidParentheses1(String s) {
         boolean[] check = new boolean[s.length()];
-        Stack<Node> stack = new Stack<>();
+        Stack<Integer> stack = new Stack<>();
 
         for (int i = 0; i < s.length(); ++i) {
             char c = s.charAt(i);
 
             if (c == ')') {
                 if (!stack.isEmpty()) {
-                    Node curr = stack.pop();
-                    check[curr.index] = true;
+                    check[stack.pop()] = true;
                     check[i] = true;
                 }
             } else {
-                stack.push(new Node(i, '('));
+                stack.push(i);
             }
         }
+
+        // 最长有效括号的问题现在转换为check数组最长的true序列
         int longest = Integer.MIN_VALUE;
         int count = 0;
         for (int i = 0; i < check.length; ++i) {
@@ -96,16 +97,9 @@ public class P32LongestValidParentheses {
         return longest;
     }
 
-    private class Node {
-        public int index;
-        public char character;
-
-        public Node(int index, char character) {
-            this.index = index;
-            this.character = character;
-        }
-    }
-
+    /**
+     * 取消辅助标记数组，利用栈的特性
+     */
     public int longestValidParentheses2(String s) {
         Stack<Integer> stack = new Stack<>();
         stack.push(-1);

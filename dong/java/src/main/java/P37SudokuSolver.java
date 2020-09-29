@@ -23,7 +23,11 @@ public class P37SudokuSolver {
         solve(board, 0, 0);
     }
 
+    /**
+     * 递归方式填充
+     */
     private boolean solve(char[][] board, int row, int col) {
+        // 整个数独填满了的条件
         if (row > 8) {
             return true;
         }
@@ -31,15 +35,21 @@ public class P37SudokuSolver {
         boolean solved = false;
         if (board[row][col] == '.') {
             for (char ch = '1'; ch <= '9'; ch++) {
+                // 查看该次数字是否合法
                 if (!checkValid(board, row, col, ch)) {
                     continue;
                 }
                 board[row][col] = ch;
+
+                // 该行填满
                 if (col == 8) {
                     solved = solve(board, row + 1, 0);
-                } else {
+                }
+                // 该行没填满
+                else {
                     solved = solve(board, row, col + 1);
                 }
+
                 if (!solved) {
                     board[row][col] = '.';
                 } else {
@@ -90,9 +100,11 @@ public class P37SudokuSolver {
 
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
+                // 打初始标记
                 if (board[i][j] == '.') {
                     continue;
                 }
+
                 int num = board[i][j] - '1';
                 int id = (i / 3) * 3 + j / 3;
                 boxes[id][num] = true;
@@ -101,7 +113,7 @@ public class P37SudokuSolver {
             }
         }
 
-        if (!update(0, board, boxes, visitedRow, visitedCol)){
+        if (!update(0, board, boxes, visitedRow, visitedCol)) {
             throw new IllegalArgumentException();
         }
     }
@@ -112,9 +124,13 @@ public class P37SudokuSolver {
             return true;
         }
 
-        // 根据pos计算需要填的位置row和col
+        // 根据pos计算需要填的位置
+        // row：第几行
+        // col：第几列
+        // id：第几个块
         int row = pos / 9, col = pos % 9, id = (row / 3) * 3 + col / 3;
         if (board[row][col] != '.') {
+            // 已经填过，更新下一个数字
             return update(pos + 1, board, sections, visitedRow, visitedCol);
         }
 
@@ -139,22 +155,5 @@ public class P37SudokuSolver {
             visitedCol[i][col] = false;
         }
         return false;
-    }
-
-    public static void main(String[] args) {
-        char[][] board = new char[][]{
-                {'5', '3', '.', '.', '7', '.', '.', '.', '.'},
-                {'6', '.', '.', '1', '9', '5', '.', '.', '.'},
-                {'.', '9', '8', '.', '.', '.', '.', '6', '.'},
-                {'8', '.', '.', '.', '6', '.', '.', '.', '3'},
-                {'4', '.', '.', '8', '.', '3', '.', '.', '1'},
-                {'7', '.', '.', '.', '2', '.', '.', '.', '6'},
-                {'.', '6', '.', '.', '.', '.', '2', '8', '.'},
-                {'.', '.', '.', '4', '1', '9', '.', '.', '5'},
-                {'.', '.', '.', '.', '8', '.', '.', '7', '9'},
-        };
-
-        new P37SudokuSolver().solveSudoku(board);
-        System.out.println(Arrays.deepToString(board));
     }
 }

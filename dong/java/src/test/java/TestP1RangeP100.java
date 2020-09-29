@@ -66,6 +66,17 @@ public class TestP1RangeP100 {
     }
 
     @Test
+    public void testP31NextPermutation() {
+        int[] nums = new int[]{1, 2, 1, 3};
+        new P31NextPermutation().nextPermutation(nums);
+        Assert.assertArrayEquals(new int[]{1, 2, 3, 1}, nums);
+
+        nums = new int[]{2, 5, 4, 3, 1};
+        new P31NextPermutation().nextPermutation(nums);
+        Assert.assertArrayEquals(new int[]{3, 1, 2, 4, 5}, nums);
+    }
+
+    @Test
     public void testP32LongestValidParentheses() {
         String s = "()(())";
         Assert.assertEquals(6, new P32LongestValidParentheses().longestValidParentheses(s));
@@ -84,10 +95,34 @@ public class TestP1RangeP100 {
     }
 
     @Test
+    public void testP37SudokuSolver() {
+        char[][] board = new char[][]{
+                {'5', '3', '.', '.', '7', '.', '.', '.', '.'},
+                {'6', '.', '.', '1', '9', '5', '.', '.', '.'},
+                {'.', '9', '8', '.', '.', '.', '.', '6', '.'},
+                {'8', '.', '.', '.', '6', '.', '.', '.', '3'},
+                {'4', '.', '.', '8', '.', '3', '.', '.', '1'},
+                {'7', '.', '.', '.', '2', '.', '.', '.', '6'},
+                {'.', '6', '.', '.', '.', '.', '2', '8', '.'},
+                {'.', '.', '.', '4', '1', '9', '.', '.', '5'},
+                {'.', '.', '.', '.', '8', '.', '.', '7', '9'},
+        };
+
+        new P37SudokuSolver().solveSudoku(board);
+        System.out.println(Arrays.deepToString(board));
+    }
+
+    @Test
     public void testP39CombinationSum() {
         int[] candidates = new int[]{2, 3, 6, 7};
         int target = 7;
         System.out.println(new P39CombinationSum().new Solution().combinationSum(candidates, target));
+    }
+
+    @Test
+    public void testP42RrappingRainWater() {
+        int[] height = new int[]{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
+        Assert.assertEquals(6, new P42RrappingRainWater().trap(height));
     }
 
     @Test
@@ -149,6 +184,15 @@ public class TestP1RangeP100 {
     @Test
     public void testP59SpiralMatrixII() {
         System.out.println(Arrays.deepToString(new P59SpiralMatrixII().generateMatrix(5)));
+    }
+
+    @Test
+    public void testP60PermutationSequence() {
+        Assert.assertEquals("132", new P60PermutationSequence().getPermutation(3, 2));
+        Assert.assertEquals("213", new P60PermutationSequence().getPermutation(3, 3));
+        Assert.assertEquals("2314", new P60PermutationSequence().getPermutation(4, 9));
+        Assert.assertEquals("321", new P60PermutationSequence().getPermutation(3, 6));
+        Assert.assertEquals("312", new P60PermutationSequence().getPermutation(3, 5));
     }
 
     @Test

@@ -13,6 +13,9 @@ import java.util.List;
  */
 public class P51NQueens {
     public List<List<String>> solveNQueens(int n) {
+        // note: 这里需要用int[][]而不是boolean[][]
+        // 这是因为每个皇后会影响行、列、斜三个方向的格子，可能会出现多个皇后影响了同一个格子的情况
+        // 使用boolean[][]的话会影响状态回退
         int[][] visitedBoxes = new int[n][n];
 
         List<Integer> list = new ArrayList<>();
@@ -20,7 +23,7 @@ public class P51NQueens {
             list.add(i);
         }
 
-        //对选取行做了优化
+        // 对选取行做了优化
         List<List<String>> result = new ArrayList<>();
         char[][] curAns = new char[n][n];
 
@@ -30,10 +33,13 @@ public class P51NQueens {
             }
         }
 
+        // 按列填充放置
         for (int i = 0; i < n; i++) {
+            // st标识放的行号
             int st = list.remove(i);
             curAns[st][0] = 'Q';
 
+            // 给斜向打上标记
             for (int j = st, k = 0; j < n && k < n; j++, k++) {
                 visitedBoxes[j][k]++;
             }
@@ -43,6 +49,7 @@ public class P51NQueens {
 
             backtrack(result, curAns, list, visitedBoxes, n, st, 1);
 
+            // 回溯标记
             for (int j = st, k = 0; j < n && k < n; j++, k++) {
                 visitedBoxes[j][k]--;
             }
@@ -58,7 +65,9 @@ public class P51NQueens {
     }
 
     private void backtrack(List<List<String>> result, char[][] curAns, List<Integer> remained, int[][] visitedBoxes, int n, int curRow, int curCol) {
+        // 排到最后一列结束
         if (curCol == n) {
+            // 记录结果
             List<String> tmp = new ArrayList<>();
             for (int i = 0; i < n; i++) {
                 tmp.add(new String(curAns[i]));
@@ -72,6 +81,7 @@ public class P51NQueens {
             int nextRow = remained.remove(i);
             curAns[nextRow][curCol] = 'Q';
 
+            // 查看是否符合要求
             if (Math.abs(nextRow - curRow) > 1 && visitedBoxes[nextRow][curCol] == 0) {
                 // 斜线标记为不可放置
                 for (int j = nextRow, k = curCol; j < n && k < n; j++, k++) {
