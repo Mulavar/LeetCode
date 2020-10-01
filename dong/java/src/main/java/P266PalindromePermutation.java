@@ -8,6 +8,9 @@ import java.util.Map;
  * @date 2020/7/22
  */
 public class P266PalindromePermutation {
+    /**
+     * 回文串的字母组成特征，则是最多只能有一个字母出现次数为奇数
+     */
     public boolean canPermutePalindrome(String s) {
         Map<Character, Integer> map = new HashMap<>();
         for (int i = 0; i < s.length(); i++) {

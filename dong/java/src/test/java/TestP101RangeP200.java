@@ -46,6 +46,17 @@ public class TestP101RangeP200 {
     }
 
     @Test
+    public void testP115DistinctSubsequences() {
+        String s = "abb";
+        String t = "ab";
+        Assert.assertEquals(2, new P115DistinctSubsequences().numDistinct(s, t));
+
+        s = "rabbbit";
+        t = "rabbit";
+        Assert.assertEquals(3, new P115DistinctSubsequences().numDistinct(s, t));
+    }
+
+    @Test
     public void testP122BestTimeToBuySellStockII() {
         int[] nums = new int[]{7, 1, 5, 3, 6, 4};
         Assert.assertEquals(7, new P122BestTimeToBuySellStockII().maxProfit(nums));
@@ -63,6 +74,11 @@ public class TestP101RangeP200 {
     public void testP128LongestConsecutiveSequence() {
         int[] nums = new int[]{100, 4, 200, 1, 3, 2};
         Assert.assertEquals(4, new P128LongestConsecutiveSequence().longestConsecutive2(nums));
+    }
+
+    @Test
+    public void testP132PalindromePartitioningII() {
+        Assert.assertEquals(1, new P132PalindromePartitioningII().minCut("aab"));
     }
 
     @Test

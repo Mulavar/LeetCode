@@ -49,6 +49,30 @@ public class TestP1RangeP100 {
     }
 
     @Test
+    public void testP4MedianTwoSortedArrays() {
+        P4MedianTwoSortedArrays solution1 = new P4MedianTwoSortedArrays();
+        int[] nums1 = new int[]{1, 4, 5, 6};
+        int[] nums2 = new int[]{2, 3};
+        Assert.assertEquals(solution1.findMedianSortedArrays(nums1, nums2), solution1.findMedianSortedArrays2(nums1, nums2), 1e-4);
+        nums1 = new int[]{1, 3, 4, 5};
+        nums2 = new int[]{2};
+        Assert.assertEquals(solution1.findMedianSortedArrays(nums1, nums2), solution1.findMedianSortedArrays2(nums1, nums2), 1e-4);
+        nums1 = new int[]{1, 2, 4, 5};
+        nums2 = new int[]{3};
+        Assert.assertEquals(solution1.findMedianSortedArrays(nums1, nums2), solution1.findMedianSortedArrays2(nums1, nums2), 1e-4);
+        nums1 = new int[]{1, 2, 4, 5, 6};
+        nums2 = new int[]{7};
+        Assert.assertEquals(solution1.findMedianSortedArrays(nums1, nums2), solution1.findMedianSortedArrays2(nums1, nums2), 1e-4);
+        nums1 = new int[]{1, 2, 5, 6, 7};
+        nums2 = new int[]{4};
+        Assert.assertEquals(solution1.findMedianSortedArrays(nums1, nums2), solution1.findMedianSortedArrays2(nums1, nums2), 1e-4);
+
+        nums1 = new int[]{1, 2, 4, 5, 7, 8};
+        nums2 = new int[]{3, 6};
+        Assert.assertEquals(solution1.findMedianSortedArrays(nums1, nums2), solution1.findMedianSortedArrays2(nums1, nums2), 1e-4);
+    }
+
+    @Test
     public void testP23MergeKSortedLists() {
         System.out.println(new P23MergeKSortedLists().mergeKLists(new ListNode[]{head, head1}));
     }
