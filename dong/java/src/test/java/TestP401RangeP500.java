@@ -26,4 +26,11 @@ public class TestP401RangeP500 {
         };
         System.out.println(Arrays.deepToString(new P406QueueReconstructionByHeight().reconstructQueue(people)));
     }
+
+    @Test
+    public void testP440KthSmallestInLexicographicalOrder() {
+        Assert.assertEquals(10, new P440KthSmallestInLexicographicalOrder().findKthNumber(13, 2));
+        Assert.assertEquals(20, new P440KthSmallestInLexicographicalOrder().findKthNumber(30, 13));
+        Assert.assertEquals(17, new P440KthSmallestInLexicographicalOrder().findKthNumber(100, 10));
+    }
 }

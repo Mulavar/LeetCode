@@ -3,6 +3,9 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * @author Lam
  * @ClassName TestP101RangeP200
@@ -87,6 +90,13 @@ public class TestP101RangeP200 {
         Assert.assertEquals(12, new P135Candy().candy(grades));
         Assert.assertEquals(12, new P135Candy().candy1(grades));
         Assert.assertEquals(4, new P135Candy().candy2(new int[]{1, 2, 2}));
+    }
+
+    @Test
+    public void testP140WordBreakII() {
+        String s = "catsanddog";
+        List<String> wordDict = Arrays.asList("cat", "cats", "and", "sand", "dog");
+        System.out.println(new P140WordBreakII().wordBreak(s, wordDict));
     }
 
     @Test

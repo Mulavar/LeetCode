@@ -92,6 +92,12 @@ public class TestP301RangeP400 {
     }
 
     @Test
+    public void testP313SuperUglyNumber() {
+        int[] primes = {2, 7, 13, 19};
+        new P313SuperUglyNumber().nthSuperUglyNumber(12, primes);
+    }
+
+    @Test
     public void testP315CountSmallerNumbersAfterSelf() {
         int[] nums = new int[]{5, 2, 6, 1};
         System.out.println(new P315CountSmallerNumbersAfterSelf().countSmaller(nums));
@@ -131,8 +137,8 @@ public class TestP301RangeP400 {
         nums2 = new int[]{6, 0, 4};
         Assert.assertArrayEquals(new int[]{6, 7, 6, 0, 4}, new P321CreateMaximumNumber().maxNumber(nums1, nums2, 5));
 
-        nums1 = new int[]{2,5,6,4,4,0};
-        nums2 = new int[]{7,3,8,0,6,5,7,6,2};
+        nums1 = new int[]{2, 5, 6, 4, 4, 0};
+        nums2 = new int[]{7, 3, 8, 0, 6, 5, 7, 6, 2};
         System.out.println(Arrays.toString(new P321CreateMaximumNumber().maxNumber(nums1, nums2, 15)));
     }
 
@@ -221,6 +227,14 @@ public class TestP301RangeP400 {
     }
 
     @Test
+    public void testP373FindKPairsWithSmallestSums() {
+        int[] nums1 = new int[]{1, 7, 11};
+        int[] nums2 = new int[]{2, 4, 6};
+
+        System.out.println(new P373FindKPairsWithSmallestSums().kSmallestPairs(nums1, nums2, 3));
+    }
+
+    @Test
     public void testP377CombinationSumIV() {
         new P377CombinationSumIV().combinationSum4(new int[]{1, 2, 3}, 4);
     }
@@ -228,13 +242,13 @@ public class TestP301RangeP400 {
     @Test
     public void testP378KthSmallestElementInASortedMatrix() {
         int[][] matrix = new int[][]{
-                { 1,  5,  9},
+                {1, 5, 9},
                 {10, 11, 13},
                 {12, 13, 15}
         };
         Assert.assertEquals(13, new P378KthSmallestElementInASortedMatrix().kthSmallest(matrix, 8));
 
-        matrix = new int[][] {
+        matrix = new int[][]{
                 {1, 2},
                 {1, 3}
         };
