@@ -34,6 +34,11 @@ public class TestOver1000 {
     }
 
     @Test
+    public void testP1296DivideArrayInSetsKConsecutiveNumbers() {
+        Assert.assertTrue(new P1296DivideArrayInSetsKConsecutiveNumbers().isPossibleDivide(new int[]{1, 2, 3, 3, 4, 4, 5, 6}, 4));
+    }
+
+    @Test
     public void testP1439FindTheKthSmallestSumOfAMatrixWithSortedRows() {
         int[][] matrix = new int[][]{
                 {1, 3, 11}, {2, 4, 6}

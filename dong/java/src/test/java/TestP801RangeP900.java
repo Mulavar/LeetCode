@@ -11,7 +11,7 @@ import java.util.List;
 public class TestP801RangeP900 {
 
     @Test
-    public void P887SuperEggDrop() {
+    public void testP887SuperEggDrop() {
         Assert.assertEquals(3, new P887SuperEggDrop().superEggDrop(2, 6));
     }
 }

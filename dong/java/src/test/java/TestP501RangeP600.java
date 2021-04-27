@@ -28,4 +28,10 @@ public class TestP501RangeP600 {
         Assert.assertEquals("a", new P524LongestWordInDictionaryThroughDeleting().findLongestWord(text, Arrays.asList("a", "b", "c")));
 
     }
+
+    @Test
+    public void testP525ContiguousArray() {
+        Assert.assertEquals(2, new P525ContiguousArray().findMaxLength(new int[]{1, 0}));
+        Assert.assertEquals(2, new P525ContiguousArray().findMaxLength(new int[]{0, 1, 0}));
+    }
 }

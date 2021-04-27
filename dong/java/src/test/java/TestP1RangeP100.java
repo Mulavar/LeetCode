@@ -73,6 +73,15 @@ public class TestP1RangeP100 {
     }
 
     @Test
+    public void testP18FourSum() {
+        int[] nums = new int[]{1, 0, -1, 0, -2, 2};
+        System.out.println(new P18FourSum().fourSum(nums, 0));
+
+        nums = new int[]{2, 2, 2, 2, 2};
+        System.out.println(new P18FourSum().fourSum(nums, 8));
+    }
+
+    @Test
     public void testP23MergeKSortedLists() {
         System.out.println(new P23MergeKSortedLists().mergeKLists(new ListNode[]{head, head1}));
     }
