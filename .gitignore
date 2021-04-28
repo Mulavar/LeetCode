@@ -1,10 +1,10 @@
 *.class
 *.o
+*.iml
 
 .idea/
 .vscode/
 target/
-.iml
 
 package-lock.json
 node_modules/

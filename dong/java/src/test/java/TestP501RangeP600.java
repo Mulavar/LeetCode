@@ -34,4 +34,14 @@ public class TestP501RangeP600 {
         Assert.assertEquals(2, new P525ContiguousArray().findMaxLength(new int[]{1, 0}));
         Assert.assertEquals(2, new P525ContiguousArray().findMaxLength(new int[]{0, 1, 0}));
     }
+
+    @Test
+    public void testP547FriendCircles() {
+        int[][] M = new int[][]{
+                {1, 1, 1},
+                {1, 1, 1},
+                {1, 1, 1},
+        };
+        Assert.assertEquals(1, new P547FriendCircles().findCircleNum(M));
+    }
 }
