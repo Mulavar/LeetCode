@@ -14,6 +14,13 @@ public class TestP601Range700 {
     }
 
     @Test
+    public void testP659SplitArrayIntoConsecutiveSubsequences() {
+        P659SplitArrayIntoConsecutiveSubsequences p659SplitArrayIntoConsecutiveSubsequences =
+                new P659SplitArrayIntoConsecutiveSubsequences();
+        assertTrue(p659SplitArrayIntoConsecutiveSubsequences.isPossible(new int[]{1, 2, 3, 3, 4, 5}));
+    }
+
+    @Test
     public void testP689MaximumSum3NonOverlappingSubarrays() {
         P689MaximumSum3NonOverlappingSubarrays p689MaximumSum3NonOverlappingSubarrays =
                 new P689MaximumSum3NonOverlappingSubarrays();
