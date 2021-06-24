@@ -4,6 +4,8 @@ import org.junit.Test;
 import java.util.Arrays;
 import java.util.List;
 
+import static org.junit.Assert.assertEquals;
+
 /**
  * @author Lam
  * @date 2020/7/8
@@ -11,11 +13,18 @@ import java.util.List;
 public class TestP501RangeP600 {
 
     @Test
+    public void testP502IPO() {
+        P502IPO p502IPO = new P502IPO();
+        // k=2, W=0, Profits=[1,2,3], Capital=[0,1,1]
+        assertEquals(4, p502IPO.findMaximizedCapital(2, 0, new int[]{1, 2, 3}, new int[]{0, 1, 1}));
+    }
+
+    @Test
     public void testP518CoinChangeII() {
         int[] coins = new int[]{1, 2, 5};
-        Assert.assertEquals(4, new P518CoinChangeII().change(5, coins));
+        assertEquals(4, new P518CoinChangeII().change(5, coins));
         coins = new int[]{2};
-        Assert.assertEquals(0, new P518CoinChangeII().change(3, coins));
+        assertEquals(0, new P518CoinChangeII().change(3, coins));
     }
 
     @Test

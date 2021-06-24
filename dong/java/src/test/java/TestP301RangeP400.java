@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static org.junit.Assert.assertEquals;
+
 /**
  * @author Lam
  * @date 2020/5/8
@@ -17,6 +19,13 @@ public class TestP301RangeP400 {
     }
 
     @Test
+    public void testP322CoinChange() {
+        int[] coins = new int[]{1, 2, 5};
+        assertEquals(3, new P322CoinChange().coinChange(coins, 11));
+        assertEquals(3, new P322CoinChange().coinChange1(coins, 11));
+    }
+
+    @Test
     public void testP305NumberIslandsII() {
         int[][] positions = new int[][]{
                 {0, 0}, {0, 1}, {1, 2}, {2, 1},
@@ -26,16 +35,16 @@ public class TestP301RangeP400 {
         expected.add(1);
         expected.add(2);
         expected.add(3);
-        Assert.assertEquals(expected, new P305NumberIslandsII().numIslands2(3, 3, positions));
+        assertEquals(expected, new P305NumberIslandsII().numIslands2(3, 3, positions));
     }
 
     @Test
     public void testP307RangeSumQueryMutable() {
         int[] nums = new int[]{1, 3, 5};
         P307RangeSumQueryMutable.NumArray array = new P307RangeSumQueryMutable().new NumArray(nums);
-        Assert.assertEquals(9, array.sumRange(0, 2));
+        assertEquals(9, array.sumRange(0, 2));
         array.update(1, 2);
-        Assert.assertEquals(8, array.sumRange(0, 2));
+        assertEquals(8, array.sumRange(0, 2));
 
     }
 
@@ -47,10 +56,10 @@ public class TestP301RangeP400 {
                 {7, 8, 9}
         };
         P308RangeSumQuery2DMutable.NumMatrix tree = new P308RangeSumQuery2DMutable().new NumMatrix(matrix);
-        Assert.assertEquals(12, tree.sumRegion(0, 0, 1, 1));
+        assertEquals(12, tree.sumRegion(0, 0, 1, 1));
         tree.update(0, 0, 2);
 
-        Assert.assertEquals(13, tree.sumRegion(0, 0, 1, 1));
+        assertEquals(13, tree.sumRegion(0, 0, 1, 1));
 
         matrix = new int[][]{
                 {2, 4},
@@ -60,17 +69,17 @@ public class TestP301RangeP400 {
         tree1.update(0, 1, 3);
         tree1.update(1, 1, -3);
         tree1.update(0, 1, 1);
-        Assert.assertEquals(-3, tree1.sumRegion(0, 0, 1, 1));
+        assertEquals(-3, tree1.sumRegion(0, 0, 1, 1));
     }
 
     @Test
     public void testP309BestTimeToBuyAndSellStockWithCooldown() {
         int[] prices = {2, 1, 4, 5, 2, 9, 7};
-        Assert.assertEquals(10, new P309BestTimeToBuyAndSellStockWithCooldown().maxProfit(prices));
+        assertEquals(10, new P309BestTimeToBuyAndSellStockWithCooldown().maxProfit(prices));
 
         prices = new int[]{1, 2, 4};
-        Assert.assertEquals(3, new P309BestTimeToBuyAndSellStockWithCooldown().maxProfit(prices));
-        Assert.assertEquals(3, new P309BestTimeToBuyAndSellStockWithCooldown().maxProfit1(prices));
+        assertEquals(3, new P309BestTimeToBuyAndSellStockWithCooldown().maxProfit(prices));
+        assertEquals(3, new P309BestTimeToBuyAndSellStockWithCooldown().maxProfit1(prices));
     }
 
     @Test
@@ -79,16 +88,16 @@ public class TestP301RangeP400 {
                 {1, 0}, {1, 2}, {1, 3},
         };
         int n = 4;
-        Assert.assertEquals(Arrays.asList(1), new P310MinimumHeightTrees().findMinHeightTrees(n, edges));
+        assertEquals(Arrays.asList(1), new P310MinimumHeightTrees().findMinHeightTrees(n, edges));
     }
 
     @Test
     public void testP312BurstBalloons() {
         int[] nums = new int[]{5};
-        Assert.assertEquals(5, new P312BurstBalloons().maxCoins(nums));
+        assertEquals(5, new P312BurstBalloons().maxCoins(nums));
 
         nums = new int[]{3, 1, 5, 8};
-        Assert.assertEquals(167, new P312BurstBalloons().maxCoins(nums));
+        assertEquals(167, new P312BurstBalloons().maxCoins(nums));
     }
 
     @Test
@@ -106,8 +115,8 @@ public class TestP301RangeP400 {
 
     @Test
     public void testP316RemoveDuplicateLetters() {
-        Assert.assertEquals("abc", new P316RemoveDuplicateLetters().removeDuplicateLetters("bcabc"));
-        Assert.assertEquals("bca", new P316RemoveDuplicateLetters().removeDuplicateLetters("bcab"));
+        assertEquals("abc", new P316RemoveDuplicateLetters().removeDuplicateLetters("bcabc"));
+        assertEquals("bca", new P316RemoveDuplicateLetters().removeDuplicateLetters("bcab"));
     }
 
     @Test
@@ -118,13 +127,13 @@ public class TestP301RangeP400 {
                 {0, 0, 1, 0, 0}
         };
 
-        Assert.assertEquals(7, new P317ShortestDistanceFromAllBuildings().shortestDistance(grid));
+        assertEquals(7, new P317ShortestDistanceFromAllBuildings().shortestDistance(grid));
     }
 
     @Test
     public void testP318MaximumProductWordLengths() {
         String[] words = new String[]{"abcw", "baz", "foo", "bar", "xtfn", "abcdef"};
-        Assert.assertEquals(16, new P318MaximumProductWordLengths().maxProduct(words));
+        assertEquals(16, new P318MaximumProductWordLengths().maxProduct(words));
     }
 
     @Test
@@ -152,13 +161,13 @@ public class TestP301RangeP400 {
     @Test
     public void testP327CountRangeSum() {
         int[] nums = new int[]{-2, 5, -1};
-        Assert.assertEquals(3, new P327CountRangeSum().countRangeSum(nums, -2, 2));
+        assertEquals(3, new P327CountRangeSum().countRangeSum(nums, -2, 2));
 
         nums = new int[]{-1, 1};
-        Assert.assertEquals(1, new P327CountRangeSum().countRangeSum(nums, 0, 0));
+        assertEquals(1, new P327CountRangeSum().countRangeSum(nums, 0, 0));
 
         nums = new int[]{-2147483647, 0, -2147483647, 2147483647};
-        Assert.assertEquals(3, new P327CountRangeSum().countRangeSum(nums, 0, 0));
+        assertEquals(3, new P327CountRangeSum().countRangeSum(nums, 0, 0));
     }
 
     @Test
@@ -168,8 +177,8 @@ public class TestP301RangeP400 {
                 {6, 6, 8},
                 {2, 1, 1},
         };
-        Assert.assertEquals(4, new P329LongestIncreasingPathInMatrix().longestIncreasingPath(matrix));
-        Assert.assertEquals(4, new P329LongestIncreasingPathInMatrix().longestIncreasingPath1(matrix));
+        assertEquals(4, new P329LongestIncreasingPathInMatrix().longestIncreasingPath(matrix));
+        assertEquals(4, new P329LongestIncreasingPathInMatrix().longestIncreasingPath1(matrix));
     }
 
     @Test
@@ -202,27 +211,27 @@ public class TestP301RangeP400 {
                 {6, 7},
                 {2, 3}
         };
-        Assert.assertEquals(3, new P354RussianDollEnvelopes().maxEnvelopes(envelopes));
+        assertEquals(3, new P354RussianDollEnvelopes().maxEnvelopes(envelopes));
 
         envelopes = new int[][]{
                 {4, 5}, {4, 6}, {6, 7}, {2, 3}, {1, 1}
         };
-        Assert.assertEquals(4, new P354RussianDollEnvelopes().maxEnvelopes(envelopes));
+        assertEquals(4, new P354RussianDollEnvelopes().maxEnvelopes(envelopes));
 
         envelopes = new int[][]{
                 {1, 3}, {3, 5}, {6, 7}, {6, 8}, {8, 4}, {9, 5}
         };
-        Assert.assertEquals(3, new P354RussianDollEnvelopes().maxEnvelopes(envelopes));
+        assertEquals(3, new P354RussianDollEnvelopes().maxEnvelopes(envelopes));
 
         envelopes = new int[][]{
                 {30, 50}, {12, 2}, {3, 4}, {12, 15}
         };
-        Assert.assertEquals(3, new P354RussianDollEnvelopes().maxEnvelopes(envelopes));
+        assertEquals(3, new P354RussianDollEnvelopes().maxEnvelopes(envelopes));
 
         envelopes = new int[][]{
                 {2, 100}, {3, 200}, {4, 300}, {5, 500}, {5, 400}, {5, 250}, {6, 370}, {6, 360}, {7, 380}
         };
-        Assert.assertEquals(5, new P354RussianDollEnvelopes().maxEnvelopes(envelopes));
+        assertEquals(5, new P354RussianDollEnvelopes().maxEnvelopes(envelopes));
 
     }
 
@@ -246,12 +255,12 @@ public class TestP301RangeP400 {
                 {10, 11, 13},
                 {12, 13, 15}
         };
-        Assert.assertEquals(13, new P378KthSmallestElementInASortedMatrix().kthSmallest(matrix, 8));
+        assertEquals(13, new P378KthSmallestElementInASortedMatrix().kthSmallest(matrix, 8));
 
         matrix = new int[][]{
                 {1, 2},
                 {1, 3}
         };
-        Assert.assertEquals(3, new P378KthSmallestElementInASortedMatrix().kthSmallest(matrix, 4));
+        assertEquals(3, new P378KthSmallestElementInASortedMatrix().kthSmallest(matrix, 4));
     }
 }
