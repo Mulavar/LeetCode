@@ -79,6 +79,11 @@ public class P51 {
             }
         }
 
+        // 假设有一个数组 arr,
+        // 我们逆序遍历数组，对每个数的排名 r 做 arr[r]++
+        // 查找逆序对的问题就变成了对每个 r 计算 sum(arr[1...r-1])
+        // 即计算前缀和的问题
+        // 引入树状数组快速更新单点，并计算前缀和
         FenwickTree tree = new FenwickTree(nums.length);
         int result = 0;
 
@@ -86,7 +91,9 @@ public class P51 {
         for (int i = nums.length - 1; i >= 0; i--) {
             // 插入排名代替实际的值
             int r = map.get(nums[i]);
+            // 查询比当前排名小的数有几个
             result += tree.query(r - 1);
+            // 该排名对应位置 + 1
             tree.update(r, 1);
         }
 

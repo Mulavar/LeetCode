@@ -14,6 +14,13 @@ public class TestP601Range700 {
     }
 
     @Test
+    public void testP649Dota2Senate() {
+        P649Dota2Senate p649Dota2Senate = new P649Dota2Senate();
+        assertEquals("Dire", p649Dota2Senate.predictPartyVictory("RDD"));
+        assertEquals("Radiant", p649Dota2Senate.predictPartyVictory("RD"));
+    }
+
+    @Test
     public void testP659SplitArrayIntoConsecutiveSubsequences() {
         P659SplitArrayIntoConsecutiveSubsequences p659SplitArrayIntoConsecutiveSubsequences =
                 new P659SplitArrayIntoConsecutiveSubsequences();

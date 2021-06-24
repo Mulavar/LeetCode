@@ -9,19 +9,11 @@
  */
 public class P122BestTimeToBuySellStockII {
     public int maxProfit(int[] prices) {
-        if (prices.length == 0) {
-            return 0;
-        }
-        int buy = prices[0];
-
         int result = 0;
-        int days = prices.length;
-
-        for (int i = 1; i < days; i++) {
-            if (prices[i] > buy) {
-                result += prices[i] - buy;
+        for (int i = 1; i < prices.length; i++) {
+            if (prices[i]>prices[i-1]) {
+                result += prices[i] - prices[i-1];
             }
-            buy = prices[i];
         }
 
         return result;

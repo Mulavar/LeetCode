@@ -71,6 +71,10 @@ public class TestP101RangeP200 {
     public void testP123BestTimeToBuySellStockIII() {
         int[] prices = new int[]{1, 2, 3, 4, 5};
         Assert.assertEquals(4, new P123BestTimeToBuySellStockIII().maxProfit(prices));
+
+        prices = new int[]{2, 1, 2, 1, 0, 0, 1};
+        Assert.assertEquals(2, new P123BestTimeToBuySellStockIII().maxProfit1(prices));
+        Assert.assertEquals(2, new P123BestTimeToBuySellStockIII().maxProfit2(prices));
     }
 
     @Test
